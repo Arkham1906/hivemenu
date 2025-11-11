@@ -1,0 +1,23 @@
+.hero-numbers{
+    padding: 30px 55px;
+    background-color: #1A1818;
+}
+
+.column-number{
+    padding: 0 45px;
+    float: left;
+    width: 225px;
+}
+
+.number{
+    text-align: center;
+}
+
+.number span{
+    font-size: 24px;
+}
+
+.number h4{
+    color: white;
+    font-size: 14px;
+}
