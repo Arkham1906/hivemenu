@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiveMenu - Emprendimientos UPEN</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
 /* ========================================
     IMPORTACIÓN DE FUENTES
 ======================================== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* ========================================
-    VARIABLES CSS
+        VARIABLES CSS
 ======================================== */
         :root {
             --moss-green: #7B904B;
@@ -24,7 +16,7 @@
         }
 
 /* ========================================
-    ESTILOS GENERALES
+        ESTILOS GENERALES
 ======================================== */
         * {
             margin: 0;
@@ -40,7 +32,7 @@
         }
 
 /* ========================================
-    HEADER - ENCABEZADO
+        HEADER - ENCABEZADO
 ======================================== */
         header {
             background-color: var(--bee-black);
@@ -130,7 +122,7 @@
         }
 
 /* ========================================
-    BANNER PRINCIPAL
+BANNER PRINCIPAL
 ======================================== */
         .hero {
             background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%);
@@ -209,7 +201,7 @@
         }
 
 /* ========================================
-    SECCIÓN DE EMPRENDIMIENTOS
+SECCIÓN DE EMPRENDIMIENTOS
 ======================================== */
         .emprendimientos {
             max-width: 1400px;
@@ -552,7 +544,7 @@
         }
 
 /* ========================================
-    RESPONSIVE - MOBILE
+RESPONSIVE - MOBILE
 ======================================== */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -600,319 +592,3 @@
                 justify-content: center;
             }
         }
-    </style>
-</head>
-<body>
-<!-- ========================================
-    HEADER - ENCABEZADO
-======================================== -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <img src="public\image\logo.png" alt="Logo">
-                <i class="fas fa-honeycomb"></i>
-                <span>HiveMenu</span>
-            </a>
-            
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#inicio"><i class="fas fa-home"></i><span>Inicio</span></a></li>
-                    <li><a href="#emprendimientos"><i class="fas fa-search"></i><span>Buscar</span></a></li>
-                    <li><a href="#" class="btn-create" id="openModal"><i class="fas fa-plus"></i> Crear</a></li>
-                    <li><a href="#perfil"><i class="fas fa-user"></i><span>Perfil</span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-<!-- ========================================
-    BANNER PRINCIPAL
-======================================== -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1> Descubre Emprendimientos UPEN</h1>
-            <p>Conecta, explora y apoya los emprendimientos más innovadores de nuestra comunidad universitaria</p>
-            <div class="hero-buttons">
-                <a href="#emprendimientos" class="btn btn-primary">Explorar ahora</a>
-                <a href="#" class="btn btn-secondary">Saber más</a>
-            </div>
-        </div>
-    </section>
-
-<!-- ========================================
-    SECCIÓN DE EMPRENDIMIENTOS
-======================================== -->
-    <section class="emprendimientos" id="emprendimientos">
-        <div class="section-header">
-            <h2>Emprendimientos Destacados</h2>
-            <p>Conoce los proyectos más creativos de nuestra colmena</p>
-        </div>
-
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar emprendimientos...">
-            <i class="fas fa-search"></i>
-        </div>
-
-        <div class="cards-grid" id="cardsGrid">
-            <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
-        </div>
-    </section>
-
-<!-- ========================================
-    MODAL DE CREACIÓN
-======================================== -->
-    <div class="modal" id="createModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2> Crear Emprendimiento</h2>
-            <form id="createForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre del emprendimiento</label>
-                    <input type="text" id="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="categoria">Categoría</label>
-                    <input type="text" id="categoria" placeholder="Ej: Alimentos, Snacks" required>
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" required></textarea>
-                </div>
-                <button type="submit" class="modal-btn">
-                    <i class="fas fa-paper-plane"></i> Publicar
-                </button>
-            </form>
-        </div>
-    </div>
-
-<!-- ========================================
-    FOOTER - PIE DE PÁGINA
-======================================== -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3> HiveMenu</h3>
-                <p>Plataforma digital que conecta emprendedores universitarios con la comunidad UPEN.</p>
-                <p>Organizamos, damos visibilidad y facilitamos el crecimiento de proyectos estudiantiles.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <p><a href="#inicio" style="color: #ccc; text-decoration: none;">Inicio</a></p>
-                <p><a href="#emprendimientos" style="color: #ccc; text-decoration: none;">Emprendimientos</a></p>
-                <p><a href="#" style="color: #ccc; text-decoration: none;">Acerca de</a></p>
-                <p><a href="#" style="color: #ccc; text-decoration: none;">Contacto</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Síguenos</h3>
-                <p>Conéctate con nuestra comunidad</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>HiveMenu © 2025 – Creado por estudiantes UPEN </p>
-        </div>
-    </footer>
-
-<!-- ========================================
-    JAVASCRIPT
-======================================== -->
-    <script>
-// ========================================
-// DATOS DE EMPRENDIMIENTOS (simulados)
-// ========================================
-        const emprendimientos = [
-            {
-                id: 1,
-                nombre: "Coffee Break",
-                categoria: "Bebidas",
-                descripcion: "Pequeña cafetería con bebidas y postres caseros. ¡El mejor café del campus!",
-                icono: ".",
-                rating: 3
-            },
-            {
-                id: 2,
-                nombre: "Rollito",
-                categoria: "Alimentos",
-                descripcion: "Venta de comida orienta como sushi y onigiris para la comunidad universitaria.",
-                icono: ".",
-                rating: 4
-            },
-            {
-                id: 3,
-                nombre: "Honor Tab",
-                categoria: "Misceláneos",
-                descripcion: "Venta de accesorios para dispositivos móviles y tabletas.",
-                icono: ".",
-                rating: 5
-            },
-            {
-                id: 4,
-                nombre: "Ferchukies",
-                categoria: "Snacks",
-                descripcion: "Galletas artesanales con ingredientes naturales. Variedad de sabores para todos los gustos.",
-                icono: ".",
-                rating: 4
-            },
-            {
-                id: 5,
-                nombre: "Tortas 'La Labor'",
-                categoria: "Alimentos",
-                descripcion: "Comida rápida y deliciosa a precios accesibles. Tortas de pierna todos los días.",
-                icono: ".",
-                rating: 4.5
-            },
-            {
-                id: 6,
-                nombre: "GlowFruit",
-                categoria: "Snacks",
-                descripcion: "Venta de frutas deshidratas y galletas saludable.",
-                icono: ".",
-                rating: 5
-            }
-        ];
-
-// ========================================
-    // FUNCIONES PARA GENERAR TARJETAS
-// ========================================
-        function generateStars(rating) {
-            let stars = '';
-            for (let i = 0; i < 5; i++) {
-                stars += i < rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
-            }
-            return stars;
-        }
-
-        function createCard(emp) {
-            return `
-                <div class="card">
-                    <div class="card-image">${emp.icono}</div>
-                    <div class="card-content">
-                        <h3 class="card-title">${emp.nombre}</h3>
-                        <span class="card-category">${emp.categoria}</span>
-                        <p class="card-description">${emp.descripcion}</p>
-                        <div class="card-footer">
-                            <a href="#" class="card-btn">Ver más <i class="fas fa-arrow-right"></i></a>
-                            <div class="card-rating">${generateStars(emp.rating)}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderCards(data) {
-            const grid = document.getElementById('cardsGrid');
-            grid.innerHTML = data.map(emp => createCard(emp)).join('');
-        }
-
-// ========================================
-    // BUSCADOR
-// ========================================
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filtered = emprendimientos.filter(emp => 
-                emp.nombre.toLowerCase().includes(searchTerm) ||
-                emp.categoria.toLowerCase().includes(searchTerm) ||
-                emp.descripcion.toLowerCase().includes(searchTerm)
-            );
-            renderCards(filtered);
-        });
-
-// ========================================
-    // MENÚ MÓVIL
-// ========================================
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-// ========================================
-    // MODAL DE CREACIÓN
-// ========================================
-        const modal = document.getElementById('createModal');
-        const openModalBtn = document.getElementById('openModal');
-        const closeModalBtn = document.getElementById('closeModal');
-        const createForm = document.getElementById('createForm');
-
-        openModalBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('active');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-
-        createForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const newEmp = {
-                id: emprendimientos.length + 1,
-                nombre: document.getElementById('nombre').value,
-                categoria: document.getElementById('categoria').value,
-                descripcion: document.getElementById('descripcion').value,
-                icono: '🆕',
-                rating: 4
-            };
-
-            emprendimientos.unshift(newEmp);
-            renderCards(emprendimientos);
-            
-            createForm.reset();
-            modal.classList.remove('active');
-            
-            alert('¡Emprendimiento creado exitosamente! 🎉');
-        });
-
-// ========================================
-    // SCROLL SUAVE
-// ========================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Cerrar menú móvil si está abierto
-                    navMenu.classList.remove('active');
-                }
-            });
-        });
-
-// ========================================
-    // INICIALIZACIÓN
-// ========================================
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCards(emprendimientos);
-        });
-    </script>
-</body>
-</html>
