@@ -1,10 +1,10 @@
 /* ========================================
     IMPORTACIÓN DE FUENTES
 ======================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* ========================================
-        VARIABLES CSS
+    VARIABLES CSS
 ======================================== */
         :root {
             --moss-green: #7B904B;
@@ -16,7 +16,7 @@
         }
 
 /* ========================================
-        ESTILOS GENERALES
+    ESTILOS GENERALES
 ======================================== */
         * {
             margin: 0;
@@ -32,7 +32,7 @@
         }
 
 /* ========================================
-        HEADER - ENCABEZADO
+    HEADER - ENCABEZADO
 ======================================== */
         header {
             background-color: var(--bee-black);
@@ -42,6 +42,7 @@
             top: 0;
             z-index: 1000;
         }
+
 
         .header-container {
             max-width: 1400px;
@@ -59,7 +60,29 @@
             font-size: 1.8rem;
             font-weight: 700;
             text-decoration: none;
+        }
+
+        .imagelg {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
             transition: transform 0.3s ease;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .logo-box:hover {
+            transform: translateY(-3px) scale(1.05) rotate(-2deg);
+            filter: drop-shadow(0 0 10px rgba(255, 201, 60, 0.4));
+        }
+
+        .logo-box:hover .imagelg {
+            transform: rotate(6deg) scale(1.07);
         }
 
         .logo:hover {
@@ -111,7 +134,6 @@
             box-shadow: 0 4px 15px rgba(255, 201, 60, 0.4);
         }
 
-        /* Menú hamburguesa para móvil */
         .menu-toggle {
             display: none;
             background: none;
@@ -122,7 +144,7 @@
         }
 
 /* ========================================
-BANNER PRINCIPAL
+    BANNER PRINCIPAL
 ======================================== */
         .hero {
             background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%);
@@ -135,6 +157,7 @@ BANNER PRINCIPAL
 
         .hero::before {
             content: '🐝';
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFGMpJNzXfWZ12K3Xmgvu2HKmQi5532Y_GmQ&s);
             position: absolute;
             font-size: 15rem;
             opacity: 0.1;
@@ -201,7 +224,7 @@ BANNER PRINCIPAL
         }
 
 /* ========================================
-SECCIÓN DE EMPRENDIMIENTOS
+    SECCIÓN DE EMPRENDIMIENTOS
 ======================================== */
         .emprendimientos {
             max-width: 1400px;
@@ -270,7 +293,7 @@ SECCIÓN DE EMPRENDIMIENTOS
             font-size: 1.2rem;
         }
 
-/* Grid de tarjetas */
+        /* Grid de tarjetas */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -481,6 +504,38 @@ SECCIÓN DE EMPRENDIMIENTOS
             transform: translateY(-2px);
         }
 
+        /* Estilo del selector de categoría */
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--bee-black);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hover */
+        .form-group select:hover {
+            border-color: var(--moss-green);
+        }
+
+        /* Focus */
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--honey-yellow);
+            box-shadow: 0 4px 12px rgba(255, 201, 60, 0.25);
+        }
+
+        /* Opciones del select */
+        .form-group select option {
+            font-family: 'Poppins', sans-serif;
+            color: var(--bee-black);
+        }
+
 /* ========================================
     FOOTER - PIE DE PÁGINA
 ======================================== */
@@ -544,7 +599,7 @@ SECCIÓN DE EMPRENDIMIENTOS
         }
 
 /* ========================================
-RESPONSIVE - MOBILE
+    RESPONSIVE - MOBILE
 ======================================== */
         @media (max-width: 768px) {
             .menu-toggle {
