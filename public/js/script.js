@@ -1,65 +1,9 @@
-
-//======================================== JAVASCRIPT ========================================
-
-// ========================================
-// DATOS DE EMPRENDIMIENTOS (solo ejemplos)
-// ========================================
-
-        const emprendimientos = [
-            {
-                id: 1,
-                nombre: "Coffee Break",
-                categoria: "Bebidas",
-                descripcion: "Pequeña cafetería con bebidas y postres caseros. ¡El mejor café del campus!",
-                icono: ".",
-                rating: 3
-            },
-            {
-                id: 2,
-                nombre: "Rollito",
-                categoria: "Alimentos",
-                descripcion: "Venta de comida orienta como sushi y onigiris para la comunidad universitaria.",
-                icono: ".",
-                rating: 4
-            },
-            {
-                id: 3,
-                nombre: "Honor Tab",
-                categoria: "Misceláneos",
-                descripcion: "Venta de accesorios para dispositivos móviles y tabletas.",
-                icono: ".",
-                rating: 5
-            },
-            {
-                id: 4,
-                nombre: "Ferchukies",
-                categoria: "Snacks",
-                descripcion: "Galletas artesanales con ingredientes naturales. Variedad de sabores para todos los gustos.",
-                icono: ".",
-                rating: 4
-            },
-            {
-                id: 5,
-                nombre: "Tortas 'La Labor'",
-                categoria: "Alimentos",
-                descripcion: "Comida rápida y deliciosa a precios accesibles. Tortas de pierna todos los días.",
-                icono: ".",
-                rating: 4.5
-            },
-            {
-                id: 6,
-                nombre: "GlowFruit",
-                categoria: "Snacks",
-                descripcion: "Venta de frutas deshidratas y galletas saludable.",
-                icono: ".",
-                rating: 5
-            }
-        ];
-
 // ========================================
     // FUNCIONES PARA GENERAR TARJETAS
 // ========================================
-        function generateStars(rating) {
+let emprendimientos = [];
+        
+function generateStars(rating) {
             let stars = '';
             for (let i = 0; i < 5; i++) {
                 stars += i < rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
@@ -139,26 +83,53 @@
             }
         });
 
-        createForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const newEmp = {
-                id: emprendimientos.length + 1,
-                nombre: document.getElementById('nombre').value,
-                categoria: document.getElementById('categoria').value,
-                descripcion: document.getElementById('descripcion').value,
-                icono: '.',
-                rating: 4
-            };
+        // ========================================
+// GUARDAR EMPRENDIMIENTO EN EL BACKEND
+// ========================================
+createForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-            emprendimientos.unshift(newEmp);
-            renderCards(emprendimientos);
-            
-            createForm.reset();
-            modal.classList.remove('active');
-            
-            alert('¡Emprendimiento creado exitosamente!');
+    const data = {
+        nombre: document.getElementById('nombre').value,
+        descripcion: document.getElementById('descripcion').value,
+        status: document.getElementById('categoria').value,
+        vendedor_id: document.getElementById('vendedor_id').value,
+        precio: 0
+    };
+
+    try {
+        const res = await fetch('/api/emprendimientos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
         });
+
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || "Error al crear");
+
+        const newEmp = {
+            id: result.insertId,
+            nombre: data.nombre,
+            categoria: data.status,
+            descripcion: data.descripcion,
+            icono: '.',
+            rating: 4
+        };
+
+        emprendimientos.unshift(newEmp);
+        renderCards(emprendimientos);
+
+        createForm.reset();
+        document.getElementById('createModal').classList.remove('active');
+
+        alert('¡Publicación creada y mostrada en el front!');
+    } catch (error) {
+        console.error("Error al crear publicación:", error);
+        alert("Hubo un problema al guardar la publicación.");
+    }
+});
+
+
 
 // ========================================
     // SCROLL SUAVE
@@ -177,6 +148,29 @@
                 }
             });
         });
+
+async function cargarEmprendimientos() {
+    try {
+        const res = await fetch('/api/emprendimientos');
+        const data = await res.json();
+        // Mapear si necesitas agregar icono y rating
+        emprendimientos = data.map(emp => ({
+            id: emp.id_post,
+            nombre: emp.nombre,
+            categoria: emp.status,
+            descripcion: emp.descripcion,
+            icono: '.',    // placeholder si no tienes ícono
+            rating: 5       // valor por defecto
+        }));
+        renderCards(emprendimientos);
+    } catch (error) {
+        console.error("Error al cargar publicaciones:", error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarEmprendimientos();
+});
 
 // ========================================
     // INICIALIZACIÓN

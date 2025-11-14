@@ -19,21 +19,14 @@ CREATE TABLE vendedores (
     cuatrimestre VARCHAR(255)
 )ENGINE=InnoDB;
 
-CREATE TABLE productos (
-    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE posts (
+    id_post INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     precio DECIMAL(10,2),
     descripcion TEXT,
-    status VARCHAR(255)
-)ENGINE=InnoDB;
-
-CREATE TABLE posts (
-    id_post INT AUTO_INCREMENT PRIMARY KEY,
     status VARCHAR(255),
     vendedor_id INT NOT NULL,
-    producto_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (vendedor_id) REFERENCES vendedores(id_vendedor) ON DELETE CASCADE,
-    FOREIGN KEY (producto_id) REFERENCES productos(id_producto) ON DELETE CASCADE
+    FOREIGN KEY (vendedor_id) REFERENCES vendedores(id_vendedor) ON DELETE CASCADE
 )ENGINE=InnoDB;

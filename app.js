@@ -1,12 +1,21 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
 const app = express();
-const vendedorRoutes = require("./routes/vendedores");
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
-app.use("/vendedores", vendedorRoutes);
+// Servir archivos estáticos como JS, CSS, imágenes
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, () => console.log("Servidor corriendo en http://localhost:3000"));
+// Ruta principal para tu HTML
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+console.log("Cargando rutas...");
+const publicacionRoutes = require('./routes/publicacionRoutes');
+app.use('/api/emprendimientos', publicacionRoutes);
+
+console.log("Rutas cargadas correctamente");
+
+module.exports = app;
