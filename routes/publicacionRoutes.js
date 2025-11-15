@@ -4,5 +4,6 @@ const controller = require('../controllers/publicacionController');
 
 router.get('/', controller.obtenerTodos);
 router.post('/', controller.crear);
+router.delete('/:id_post', controller.borrar);
 
 module.exports = router;

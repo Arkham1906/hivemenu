@@ -13,7 +13,7 @@ function generateStars(rating) {
 
         function createCard(emp) {
             return `
-                <div class="card">
+                <div class="card" id="post-${emp.id}">
                     <div class="card-image">${emp.icono}</div>
                     <div class="card-content">
                         <h3 class="card-title">${emp.nombre}</h3>
@@ -23,6 +23,9 @@ function generateStars(rating) {
                             <a href="#" class="card-btn">Ver más <i class="fas fa-arrow-right"></i></a>
                             <div class="card-rating">${generateStars(emp.rating)}</div>
                         </div>
+                        <button onclick="borrarPost(${emp.id})" type="button" class="modal-btn">
+                            <i class="fas fa-paper-plane"></i> Eliminar
+                        </button>
                     </div>
                 </div>
             `;
@@ -153,20 +156,51 @@ async function cargarEmprendimientos() {
     try {
         const res = await fetch('/api/emprendimientos');
         const data = await res.json();
-        // Mapear si necesitas agregar icono y rating
         emprendimientos = data.map(emp => ({
             id: emp.id_post,
             nombre: emp.nombre,
             categoria: emp.status,
             descripcion: emp.descripcion,
-            icono: '.',    // placeholder si no tienes ícono
-            rating: 5       // valor por defecto
+            icono: '.',    
+            rating: 5
         }));
         renderCards(emprendimientos);
     } catch (error) {
         console.error("Error al cargar publicaciones:", error);
     }
 }
+
+async function borrarPost(id_post) {
+    if (!id_post) {
+        console.error("id_post no válido:", id_post);
+        return;
+    }
+
+    if (!confirm("¿Seguro que deseas eliminar este post?")) return;
+
+    try {
+        const response = await fetch(`/api/emprendimientos/${id_post}`, {
+            method: "DELETE"
+        });
+
+        const data = await response.json();
+        console.log("respuesta DELETE:", response.status, data);
+
+        if (!response.ok) {
+            alert("Error al borrar: " + data.error);
+            return;
+        }
+        const card = document.getElementById(`post-${id_post}`);
+        if (card) card.remove();
+
+        alert("Publicación eliminada.");
+    } catch (err) {
+        console.error("Error en borrarPost:", err);
+        alert("Ocurrió un error en la petición.");
+    }
+}
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     cargarEmprendimientos();

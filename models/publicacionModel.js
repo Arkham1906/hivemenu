@@ -16,6 +16,14 @@ class Publicacion {
 
         return result;
     }
+
+    static async borrar({id_post}){
+        const [result] = await db.query(
+            'DELETE FROM posts WHERE id_post = ?',
+            [id_post]
+        );
+        return result;
+    }
 }
 
 module.exports = Publicacion;
