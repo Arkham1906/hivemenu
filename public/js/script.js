@@ -26,6 +26,9 @@ function generateStars(rating) {
                         <button onclick="borrarPost(${emp.id})" type="button" class="modal-btn">
                             <i class="fas fa-paper-plane"></i> Eliminar
                         </button>
+                        <button onclick="editarPost(${emp.id_post})" class="modal-btn edit">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
                     </div>
                 </div>
             `;
@@ -200,6 +203,57 @@ async function borrarPost(id_post) {
     }
 }
 
+function editarPost(id_post) {
+    const emp = emprendimientos.find(e => e.id === id_post);
+
+    if (!emp) return alert("Post no encontrado");
+
+    document.getElementById("edit_nombre").value = emp.nombre;
+    document.getElementById("edit_descripcion").value = emp.descripcion;
+    document.getElementById("edit_categoria").value = emp.categoria;
+
+    document.getElementById("edit_id_post").value = id_post;
+
+    document.getElementById("editModal").classList.add("active");
+}
+
+async function guardarEdicion() {
+    const id_post = document.getElementById("edit_id_post").value;
+
+    const data = {
+        nombre: document.getElementById("edit_nombre").value,
+        descripcion: document.getElementById("edit_descripcion").value,
+        status: document.getElementById("edit_categoria").value,
+        vendedor_id: 1, // si no cambia
+        precio: 0
+    };
+
+    const res = await fetch(`/api/emprendimientos/${id_post}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+        alert(result.error);
+        return;
+    }
+
+    // 🔥 Actualizar en memoria
+    const index = emprendimientos.findIndex(e => e.id === parseInt(id_post));
+    if (index !== -1) {
+        emprendimientos[index] = { ...emprendimientos[index], ...data };
+    }
+
+    // 🔄 Renderizar de nuevo
+    renderCards(emprendimientos);
+
+    document.getElementById("editModal").classList.remove("active");
+
+    alert("Post actualizado");
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {

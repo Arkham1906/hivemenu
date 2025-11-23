@@ -1,6 +1,4 @@
-const { error } = require('console');
 const Publicacion = require('../models/publicacionModel');
-const { message } = require('statuses');
 
 exports.obtenerTodos = async (req, res) => {
     try {
@@ -11,6 +9,7 @@ exports.obtenerTodos = async (req, res) => {
         res.status(500).json({ error: "Error al obtener publicaciones" });
     }
 };
+
 
 exports.crear = async (req, res) => {
     try {
@@ -25,7 +24,7 @@ exports.crear = async (req, res) => {
 
 exports.borrar = async (req, res) => {
     try {
-        const { id_post } = req.params; // <- AQUÍ ESTABA EL ERROR
+        const { id_post } = req.params;
 
         const result = await Publicacion.borrar({ id_post });
 
@@ -38,5 +37,23 @@ exports.borrar = async (req, res) => {
     } catch (error) {
         console.error("Error al borrar publicación:", error);
         return res.status(500).json({ error: "Error al borrar la publicación" });
+    }
+};
+
+exports.editar = async (req, res) => {
+    const { id_post } = req.params;
+    const data = req.body;
+
+    try{
+        const result = await Publicacion.editar(id_post, data);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({error: "Post no encontrado"});
+        }
+    
+        return res.json({message: "Post actualizado"});
+    } catch (error) {
+        console.error("Error al editar:", error);
+        res.status(500).json({error: "Error al editar"});
     }
 };
