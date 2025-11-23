@@ -3,11 +3,8 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-
-// Servir archivos estáticos como JS, CSS, imágenes
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta principal para tu HTML
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
@@ -15,7 +12,6 @@ app.get('/', (req, res) => {
 console.log("Cargando rutas...");
 const publicacionRoutes = require('./routes/publicacionRoutes');
 app.use('/api/emprendimientos', publicacionRoutes);
-
 console.log("Rutas cargadas correctamente");
 
 module.exports = app;
