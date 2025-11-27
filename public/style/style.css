@@ -1,1062 +1,1554 @@
-
-        /* ========================================
-           IMPORTACIÓN DE FUENTES
-        ======================================== */
+/* ========================================
+    IMPORTACIÓN DE FUENTES
+======================================== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-        /* ========================================
-           VARIABLES CSS
-        ======================================== */
-        :root {
-            --moss-green: #7B904B;
-            --honey-yellow: #FFC93C;
-            --warm-gold: #E8A317;
-            --bee-black: #1E1E1E;
-            --light-bg: #FAFAFA;
-            --white: #FFFFFF;
-        }
-
-        /* ========================================
-           ESTILOS GENERALES
-        ======================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--bee-black);
-            line-height: 1.6;
-        }
-
-        /* ========================================
-           HEADER - ENCABEZADO
-        ======================================== */
-        header {
-            background-color: var(--bee-black);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--honey-yellow);
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .imagelg {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        
-        .logo-box:hover {
-            transform: translateY(-3px) scale(1.05) rotate(-2deg);
-            filter: drop-shadow(0 0 10px rgba(255, 201, 60, 0.4));
-        }
-
-        .logo-box:hover .imagelg {
-            transform: rotate(6deg) scale(1.07);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--honey-yellow);
-        }
-
-        nav i {
-            font-size: 1.5rem;
-        }
-
-        .btn-create {
-            background-color: var(--honey-yellow);
-            color: var(--bee-black);
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-create:hover {
-            background-color: var(--warm-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 201, 60, 0.4);
-        }
-
-        /* Menú hamburguesa para móvil */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--honey-yellow);
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-
-        /* ========================================
-           BANNER PRINCIPAL
-        ======================================== */
-        .hero {
-            background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '🐝';
-            position: absolute;
-            font-size: 15rem;
-            opacity: 0.1;
-            right: -5rem;
-            top: -3rem;
-            transform: rotate(-15deg);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: var(--white);
-            color: var(--bee-black);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--bee-black);
-        }
-
-        /* ========================================
-           SECCIÓN DE EMPRENDIMIENTOS
-        ======================================== */
-        .emprendimientos {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--bee-black);
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--honey-yellow);
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Barra de búsqueda */
-        .search-bar {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            position: relative;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 1rem 3rem 1rem 1.5rem;
-            border: 2px solid var(--moss-green);
-            border-radius: 30px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            outline: none;
-            border-color: var(--honey-yellow);
-            box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
-        }
-
-        .search-bar i {
-            position: absolute;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--moss-green);
-            font-size: 1.2rem;
-        }
-
-        /* Grid de tarjetas */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-image::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white" opacity="0.1"/></svg>');
-            opacity: 0.3;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            color: var(--bee-black);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .card-category {
-            display: inline-block;
-            background-color: var(--honey-yellow);
-            color: var(--bee-black);
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .card-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-btn {
-            background-color: var(--moss-green);
-            color: var(--white);
-            padding: 0.7rem 1.5rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .card-btn:hover {
-            background-color: var(--warm-gold);
-            transform: translateX(5px);
-        }
-
-        .card-rating {
-            display: flex;
-            gap: 0.3rem;
-            color: var(--warm-gold);
-        }
-
-        /* ========================================
-           MODAL DE CREACIÓN
-        ======================================== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--bee-black);
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--honey-yellow);
-        }
-
-        .modal h2 {
-            color: var(--bee-black);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--bee-black);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s ease;
-            font-size: 1rem;
-            background-color: var(--white);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--honey-yellow);
-        }
-
-        .form-group select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
-            background-repeat: no-repeat;
-            background-position: right 0.8rem center;
-            background-size: 1.2rem;
-            padding-right: 2.5rem;
-        }
-
-        .form-group select:hover {
-            border-color: var(--moss-green);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .modal-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--honey-yellow);
-            color: var(--bee-black);
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn:hover {
-            background-color: var(--warm-gold);
-            transform: translateY(-2px);
-        }
-
-        .modal-btn-delete {
-            background-color: #e74c3c;
-            margin-top: 1rem;
-        }
-
-        .modal-btn-delete:hover {
-            background-color: #c0392b;
-        }
-
-        /* ========================================
-           FOOTER - PIE DE PÁGINA
-        ======================================== */
-        footer {
-            background-color: var(--bee-black);
-            color: var(--white);
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--honey-yellow);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-section p {
-            margin-bottom: 0.5rem;
-            color: #ccc;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-        }
-
-        .social-links a:hover {
-            color: var(--honey-yellow);
-            background-color: rgba(255, 201, 60, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #999;
-        }
-
-        /* ========================================
-           SECCIÓN DE PERFIL
-        ======================================== */
-        .perfil-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 2rem;
-            display: none;
-        }
-
-        .perfil-section.active {
-            display: block;
-        }
-
-        .perfil-header {
-            background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .perfil-avatar {
-            width: 120px;
-            height: 120px;
-            background-color: var(--white);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border: 4px solid rgba(255,255,255,0.3);
-        }
-
-        .perfil-name {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .perfil-bio {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .perfil-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .perfil-content {
-            background-color: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .perfil-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #eee;
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            color: #666;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab-btn.active {
-            color: var(--honey-yellow);
-            border-bottom-color: var(--honey-yellow);
-        }
-
-        .tab-btn:hover {
-            color: var(--warm-gold);
-        }
-
-        .mis-publicaciones {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .btn-edit,
-        .btn-delete {
-            flex: 1;
-            padding: 0.6rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn-edit {
-            background-color: var(--moss-green);
-            color: var(--white);
-        }
-
-        .btn-edit:hover {
-            background-color: var(--warm-gold);
-            transform: translateY(-2px);
-        }
-
-        .btn-delete {
-            background-color: #e74c3c;
-            color: var(--white);
-        }
-
-        .btn-delete:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: #999;
-        }
-
-        .empty-state i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: #ddd;
-        }
-
-        .empty-state h3 {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .perfil-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .btn-perfil {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .btn-editar-perfil {
-            background-color: var(--white);
-            color: var(--bee-black);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-editar-perfil:hover {
-            background-color: rgba(255,255,255,0.9);
-            transform: translateY(-2px);
-        }
-
-        .btn-cerrar-sesion {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-cerrar-sesion:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
-        }
-
-        /* ========================================
-           LOGIN Y REGISTRO
-        ======================================== */
-        .auth-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .auth-container.active {
-            display: flex;
-        }
-
-        .auth-box {
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 30px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            position: relative;
-            animation: slideUp 0.4s ease;
-        }
-
-        .auth-logo {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .auth-logo i {
-            font-size: 4rem;
-            color: var(--honey-yellow);
-        }
-
-        .auth-logo h2 {
-            color: var(--bee-black);
-            font-size: 2.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .auth-logo p {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .auth-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            background-color: #f5f5f5;
-            padding: 0.5rem;
-            border-radius: 15px;
-        }
-
-        .auth-tab {
-            flex: 1;
-            padding: 0.8rem;
-            background: none;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #666;
-        }
-
-        .auth-tab.active {
-            background-color: var(--honey-yellow);
-            color: var(--bee-black);
-        }
-
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--bee-black);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--honey-yellow);
-            box-shadow: 0 0 0 3px rgba(255, 201, 60, 0.1);
-        }
-
-        .auth-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--honey-yellow);
-            color: var(--bee-black);
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .auth-btn:hover {
-            background-color: var(--warm-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(232, 163, 23, 0.4);
-        }
-
-        .auth-footer {
-            text-align: center;
-            margin-top: 1.5rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .error-message {
-            background-color: #ffe6e6;
-            color: #c0392b;
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .error-message.show {
-            display: flex;
-        }
-
-        .success-message {
-            background-color: #e6f7e6;
-            color: #27ae60;
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .success-message.show {
-            display: flex;
-        }
-
-        .user-menu {
-            display: none;
-            align-items: center;
-            gap: 1rem;
-            color: var(--white);
-        }
-
-        .user-menu.active {
-            display: flex;
-        }
-
-        .user-name {
-            font-weight: 600;
-        }
-
-        /* ========================================
-           RESPONSIVE - MOBILE
-        ======================================== */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            nav ul {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                background-color: var(--bee-black);
-                width: 100%;
-                flex-direction: column;
-                padding: 2rem;
-                transition: left 0.3s ease;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            }
-
-            nav ul.active {
-                left: 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
+/* ========================================
+    VARIABLES CSS
+======================================== */
+:root {
+    --moss-green: #7B904B; /* verde musgo usado en fondos y botones */
+    --honey-yellow: #FFC93C; /* amarillo miel para resaltar elementos */
+    --warm-gold: #E8A317; /* dorado cálido para hover y detalles */
+    --bee-black: #1E1E1E; /* negro abeja para textos y fondos */
+    --light-bg: #FAFAFA; /* fondo claro general */
+    --white: #FFFFFF; /* blanco puro para fondos y textos */
+}
+
+/* ========================================
+    ESTILOS GENERALES
+======================================== */
+* {
+    margin: 0; /* elimina márgenes por defecto */
+    padding: 0; /* elimina relleno por defecto */
+    box-sizing: border-box; /* incluye borde y padding en el cálculo del tamaño */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* tipografía principal */
+    background-color: var(--light-bg); /* fondo claro de la página */
+    color: var(--bee-black); /* color de texto principal */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+/* ========================================
+    HEADER - ENCABEZADO
+======================================== */
+header {
+    background-color: var(--bee-black); /* fondo oscuro del header */
+    padding: 1rem 2rem; /* espacio interno superior/inferior y lateral */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* sombra sutil bajo el header */
+    position: sticky; /* mantiene el header fijo al hacer scroll */
+    top: 0; /* se fija en la parte superior */
+    z-index: 1000; /* asegura que quede por encima del contenido */
+}
+
+.header-container {
+    max-width: 1400px; /* ancho máximo del contenido del header */
+    margin: 0 auto; /* centra el contenido horizontalmente */
+    display: flex; /* usa flexbox para organizar elementos */
+    justify-content: space-between; /* separa elementos a extremos */
+    align-items: center; /* centra verticalmente los elementos */
+}
+
+.logo {
+    display: flex; /* organiza ícono y texto en fila */
+    align-items: center; /* centra verticalmente ícono y texto */
+    gap: 0.5rem; /* espacio entre ícono y texto */
+    color: var(--honey-yellow); /* color amarillo miel para el logo */
+    font-size: 1.8rem; /* tamaño de fuente del logo */
+    font-weight: 700; /* negrita para destacar el logo */
+    text-decoration: none; /* elimina subrayado del enlace */
+}
+
+.imagelg {
+    height: 50px; /* altura fija de la imagen del logo */
+    width: auto; /* ancho automático proporcional */
+    object-fit: contain; /* ajusta la imagen sin recortarla */
+    transition: transform 0.3s ease; /* transición suave para animación */
+}
+
+.logo-box {
+    display: flex; /* organiza imagen y texto en fila */
+    align-items: center; /* centra verticalmente */
+    gap: 0.5rem; /* espacio entre elementos */
+    transition: transform 0.3s ease, filter 0.3s ease; /* animación suave en hover */
+}
+
+.logo-box:hover {
+    transform: translateY(-3px) scale(1.05) rotate(-2deg); /* efecto de movimiento y rotación en hover */
+    filter: drop-shadow(0 0 10px rgba(255, 201, 60, 0.4)); /* sombra amarilla suave */
+}
+
+.logo-box:hover .imagelg {
+    transform: rotate(6deg) scale(1.07); /* rota y escala la imagen en hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* aumenta ligeramente el tamaño del logo en hover */
+}
+
+.logo i {
+    font-size: 2rem; /* tamaño del ícono dentro del logo */
+}
+
+nav ul {
+    display: flex; /* organiza los enlaces en fila */
+    list-style: none; /* elimina viñetas de lista */
+    gap: 2rem; /* espacio entre enlaces */
+    align-items: center; /* centra verticalmente los enlaces */
+}
+
+nav a {
+    color: var(--white); /* color blanco para los enlaces */
+    text-decoration: none; /* elimina subrayado */
+    display: flex; /* organiza ícono y texto en columna */
+    flex-direction: column; /* coloca ícono arriba y texto abajo */
+    align-items: center; /* centra horizontalmente ícono y texto */
+    gap: 0.3rem; /* espacio entre ícono y texto */
+    font-size: 0.9rem; /* tamaño de fuente del texto del enlace */
+    transition: color 0.3s ease; /* transición suave en hover */
+}
+
+nav a:hover {
+    color: var(--honey-yellow); /* cambia a amarillo miel en hover */
+}
+
+nav i {
+    font-size: 1.5rem; /* tamaño de los íconos de navegación */
+}
+
+.btn-create {
+    background-color: var(--honey-yellow); /* fondo amarillo miel del botón */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 25px; /* esquinas redondeadas tipo píldora */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.btn-create:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.4); /* sombra amarilla suave en hover */
+}
+
+/* Menú hamburguesa para móvil */
+.menu-toggle {
+    display: none; /* oculto por defecto en escritorio */
+    background: none; /* sin fondo */
+    border: none; /* sin borde */
+    color: var(--honey-yellow); /* color amarillo miel para el ícono */
+    font-size: 1.8rem; /* tamaño del ícono de menú */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+}
+
+
+/* ========================================
+    BANNER PRINCIPAL
+======================================== */
+
+.hero {
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* fondo degradado diagonal con colores principales */
+    color: var(--white); /* texto en color blanco para contraste */
+    padding: 4rem 2rem; /* espacio interno amplio en el banner */
+    text-align: center; /* centra el contenido del banner */
+    position: relative; /* permite posicionar pseudo-elementos dentro del banner */
+    overflow: hidden; /* oculta cualquier contenido que se desborde del contenedor */
+}
+
+.hero::before {
+    content: url(../image/logoblanco.png); /* inserta imagen decorativa como pseudo-elemento */
+    position: absolute; /* posiciona la imagen dentro del banner */
+    font-size: 15rem; /* tamaño grande de la imagen decorativa */
+    opacity: 0.1; /* transparencia para que no distraiga demasiado */
+    right: -5rem; /* coloca la imagen hacia la derecha */
+    top: -3rem; /* coloca la imagen hacia arriba */
+    transform: rotate(-15deg); /* rota la imagen decorativa para dar dinamismo */
+}
+
+.hero-content {
+    max-width: 800px; /* ancho máximo del contenido del banner */
+    margin: 0 auto; /* centra el contenido horizontalmente */
+    position: relative; /* mantiene el contenido por encima del pseudo-elemento */
+    z-index: 1; /* asegura que el contenido esté encima de la imagen decorativa */
+}
+
+.hero h1 {
+    font-size: 3rem; /* tamaño grande para el título principal */
+    margin-bottom: 1rem; /* separación inferior bajo el título */
+    font-weight: 700; /* negrita para destacar el título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* sombra sutil para dar relieve al texto */
+}
+
+.hero p {
+    font-size: 1.3rem; /* tamaño de fuente del subtítulo */
+    margin-bottom: 2rem; /* separación inferior bajo el subtítulo */
+    font-weight: 300; /* peso ligero para contraste con el título */
+}
+
+.hero-buttons {
+    display: flex; /* organiza los botones en fila */
+    gap: 1rem; /* espacio entre botones */
+    justify-content: center; /* centra los botones horizontalmente */
+    flex-wrap: wrap; /* permite que los botones se ajusten en varias líneas si es necesario */
+}
+
+.btn {
+    padding: 1rem 2rem; /* espacio interno de los botones */
+    border-radius: 30px; /* esquinas redondeadas tipo píldora */
+    text-decoration: none; /* elimina subrayado si es enlace */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+    display: inline-block; /* mantiene el botón como bloque en línea */
+}
+
+.btn-primary {
+    background-color: var(--white); /* fondo blanco del botón primario */
+    color: var(--bee-black); /* texto oscuro para contraste */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px); /* levanta ligeramente el botón en hover */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.3); /* sombra blanca suave en hover */
+}
+
+.btn-secondary {
+    background-color: transparent; /* fondo transparente para el botón secundario */
+    color: var(--white); /* texto blanco para contraste */
+    border: 2px solid var(--white); /* borde blanco para delimitar el botón */
+}
+
+.btn-secondary:hover {
+    background-color: var(--white); /* cambia a fondo blanco en hover */
+    color: var(--bee-black); /* cambia el texto a negro para contraste */
+}
+
+/* ========================================
+    SECCIÓN DE EMPRENDIMIENTOS
+======================================== */
+
+.emprendimientos {
+    max-width: 1400px; /* ancho máximo de la sección de emprendimientos */
+    margin: 3rem auto; /* margen superior/inferior y centrado horizontal */
+    padding: 2rem; /* espacio interno de la sección */
+}
+
+.section-header {
+    text-align: center; /* centra el contenido del encabezado */
+    margin-bottom: 3rem; /* separación inferior respecto al contenido siguiente */
+}
+
+.section-header h2 {
+    font-size: 2.5rem; /* tamaño de fuente del título principal */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    position: relative; /* permite posicionar el pseudo-elemento decorativo */
+    display: inline-block; /* mantiene el título como bloque en línea */
+}
+
+.section-header h2::after {
+    content: ''; /* crea un pseudo-elemento decorativo debajo del título */
+    position: absolute; /* posiciona el pseudo-elemento respecto al título */
+    bottom: -10px; /* lo coloca debajo del texto */
+    left: 50%; /* lo centra horizontalmente */
+    transform: translateX(-50%); /* ajusta el centrado */
+    width: 80px; /* ancho de la línea decorativa */
+    height: 4px; /* grosor de la línea decorativa */
+    background-color: var(--honey-yellow); /* color amarillo miel de la línea */
+    border-radius: 2px; /* esquinas redondeadas de la línea */
+}
+
+.section-header p {
+    color: #666; /* color gris para el subtítulo */
+    font-size: 1.1rem; /* tamaño de fuente del subtítulo */
+}
+
+
+/* ========================================
+    Grid de tarjetas
+======================================== */
+.cards-grid {
+    display: grid; /* usa grid para organizar las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* columnas flexibles mínimo 300px */
+    gap: 2rem; /* separación entre tarjetas */
+}
+
+.card {
+    background-color: var(--white); /* fondo blanco de la tarjeta */
+    border-radius: 20px; /* esquinas redondeadas de la tarjeta */
+    overflow: hidden; /* oculta contenido que se salga del contenedor */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+    transition: all 0.3s ease; /* transición suave en hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* levanta la tarjeta en hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* intensifica la sombra en hover */
+}
+
+.card-image {
+    width: 100%; /* ocupa todo el ancho de la tarjeta */
+    height: 200px; /* altura fija del área de imagen */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo cuando no hay imagen */
+    display: flex; /* usa flex para centrar contenido */
+    align-items: center; /* centra verticalmente */
+    justify-content: center; /* centra horizontalmente */
+    font-size: 4rem; /* tamaño grande para iniciales o ícono */
+    color: var(--white); /* color blanco para iniciales o ícono */
+    position: relative; /* permite posicionar pseudo-elementos */
+    overflow: hidden; /* recorta contenido que se salga del área */
+}
+
+.card-image::after {
+    content: ''; /* pseudo-elemento decorativo superpuesto */
+    position: absolute; /* se coloca sobre el área de imagen */
+    width: 100%; /* ocupa todo el ancho */
+    height: 100%; /* ocupa toda la altura */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white" opacity="0.1"/></svg>'); /* patrón decorativo SVG embebido */
+    opacity: 0.3; /* transparencia del patrón */
+}
+
+.card-content {
+    padding: 1.5rem; /* espacio interno del contenido de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.5rem; /* tamaño de fuente del título */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    font-weight: 600; /* seminegrita para destacar el título */
+}
+
+.card-category {
+    display: inline-block; /* muestra la categoría como bloque en línea */
+    background-color: var(--honey-yellow); /* fondo amarillo miel */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    padding: 0.3rem 1rem; /* espacio interno de la etiqueta */
+    border-radius: 15px; /* esquinas redondeadas tipo píldora */
+    font-size: 0.8rem; /* tamaño compacto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la categoría */
+    margin-bottom: 1rem; /* separación inferior respecto al contenido */
+}
+
+.card-description {
+    color: #666; /* color gris para el texto descriptivo */
+    margin-bottom: 1rem; /* separación inferior bajo la descripción */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+.card-footer {
+    display: flex; /* layout flexible para el pie de la tarjeta */
+    justify-content: space-between; /* separa elementos a extremos */
+    align-items: center; /* centra verticalmente los elementos */
+}
+
+.card-btn {
+    background-color: var(--moss-green); /* fondo verde musgo del botón */
+    color: var(--white); /* texto blanco para contraste */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 20px; /* esquinas redondeadas tipo píldora */
+    text-decoration: none; /* elimina subrayado si es enlace */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.card-btn:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateX(5px); /* desplaza ligeramente el botón a la derecha en hover */
+}
+
+
+
+/* ========================================
+    MODAL DE CREACIÓN
+======================================== */
+.modal {
+    display: none; /* el modal está oculto por defecto */
+    position: fixed; /* se posiciona fijo para cubrir toda la ventana */
+    top: 0; /* se ubica desde la parte superior */
+    left: 0; /* se ubica desde la parte izquierda */
+    width: 100%; /* ocupa todo el ancho de la ventana */
+    height: 100%; /* ocupa todo el alto de la ventana */
+    background-color: rgba(0,0,0,0.7); /* fondo oscuro translúcido para el overlay */
+    z-index: 2000; /* asegura que quede por encima de otros elementos */
+    justify-content: center; /* centra horizontalmente el contenido interno */
+    align-items: center; /* centra verticalmente el contenido interno */
+    animation: fadeIn 0.3s ease; /* animación de entrada con efecto de opacidad */
+}
+
+.modal.active {
+    display: flex; /* muestra el modal cuando tiene la clase active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* estado inicial transparente */
+    to { opacity: 1; } /* estado final visible */
+}
+
+.modal-content {
+    background-color: var(--white); /* fondo blanco para el contenido del modal */
+    padding: 2rem; /* espacio interno del modal */
+    border-radius: 20px; /* esquinas redondeadas del modal */
+    max-width: 500px; /* ancho máximo del modal */
+    width: 90%; /* ancho relativo para adaptarse a pantallas pequeñas */
+    position: relative; /* permite posicionar elementos internos como el botón de cierre */
+    animation: slideUp 0.3s ease; /* animación de entrada hacia arriba */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; } /* estado inicial desplazado hacia abajo y oculto */
+    to { transform: translateY(0); opacity: 1; } /* estado final en posición y visible */
+}
+
+.modal-close {
+    position: absolute; /* posiciona el botón de cierre dentro del modal */
+    top: 1rem; /* separación desde el borde superior */
+    right: 1rem; /* separación desde el borde derecho */
+    background: none; /* sin fondo para el botón */
+    border: none; /* sin borde para el botón */
+    font-size: 1.5rem; /* tamaño del ícono de cierre */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    color: var(--bee-black); /* color oscuro para el ícono de cierre */
+    transition: color 0.3s ease; /* transición suave al cambiar de color */
+}
+
+.modal-close:hover {
+    color: var(--honey-yellow); /* cambia a amarillo miel en hover */
+}
+
+.modal h2 {
+    color: var(--bee-black); /* color del título dentro del modal */
+    margin-bottom: 1.5rem; /* separación inferior bajo el título */
+    font-size: 2rem; /* tamaño de fuente del título */
+}
+
+/* ========================================
+    CAMPOS DEL FORMULARIO
+======================================== */
+.form-group {
+    margin-bottom: 1.5rem; /* separación inferior entre grupos de campos */
+}
+
+.form-group label {
+    display: block; /* la etiqueta ocupa toda la línea sobre el campo */
+    margin-bottom: 0.5rem; /* espacio entre la etiqueta y el campo */
+    color: var(--bee-black); /* color de texto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%; /* los campos ocupan todo el ancho disponible */
+    padding: 0.8rem; /* espacio interno de los campos */
+    border: 2px solid #ddd; /* borde gris claro */
+    border-radius: 10px; /* esquinas redondeadas */
+    font-family: 'Poppins', sans-serif; /* fuente moderna */
+    transition: border-color 0.3s ease; /* transición suave para el borde */
+    font-size: 1rem; /* tamaño de fuente estándar */
+    background-color: var(--white); /* fondo blanco */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none; /* elimina el contorno por defecto */
+    border-color: var(--honey-yellow); /* cambia el color del borde en foco */
+}
+
+.form-group select {
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    appearance: none; /* elimina el estilo nativo del select */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); /* ícono de flecha personalizado */
+    background-repeat: no-repeat; /* evita que se repita el ícono */
+    background-position: right 0.8rem center; /* posiciona el ícono a la derecha */
+    background-size: 1.2rem; /* tamaño del ícono */
+    padding-right: 2.5rem; /* espacio adicional para el ícono */
+}
+
+.form-group select:hover {
+    border-color: var(--moss-green); /* cambia el borde a verde musgo en hover */
+}
+
+.form-group textarea {
+    resize: vertical; /* permite redimensionar solo en vertical */
+    min-height: 100px; /* altura mínima del área de texto */
+}
+
+/* ========================================
+    BOTONES DEL MODAL
+======================================== */
+.modal-btn {
+    width: 100%; /* el botón ocupa todo el ancho disponible */
+    padding: 1rem; /* espacio interno del botón */
+    background-color: var(--honey-yellow); /* fondo amarillo miel */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    border: none; /* sin borde */
+    border-radius: 10px; /* esquinas redondeadas */
+    font-size: 1.1rem; /* tamaño de fuente ligeramente mayor */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.modal-btn:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+.modal-btn-delete {
+    background-color: #e74c3c; /* rojo para indicar acción peligrosa (eliminar) */
+    margin-top: 1rem; /* separación superior respecto a otros botones */
+}
+
+.modal-btn-delete:hover {
+    background-color: #c0392b; /* rojo más oscuro en hover para feedback visual */
+}
+
+
+/* ========================================
+    TARJETAS DE EMPRENDIMIENTOS      
+======================================== */
+
+.cards-grid {
+    display: grid; /* usa grid para organizar las tarjetas en filas y columnas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* crea columnas flexibles mínimo de 300px llenando el espacio disponible */
+    gap: 2rem; /* separación entre tarjetas del grid */
+}
+
+.card {
+    background-color: var(--white); /* fondo blanco de la tarjeta para contraste limpio */
+    border-radius: 20px; /* esquinas redondeadas de la tarjeta */
+    overflow: hidden; /* oculta contenido que se salga del contenedor de la tarjeta */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+    transition: all 0.3s ease; /* transición suave para efectos hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad al pasar por la tarjeta */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* levanta la tarjeta ligeramente en hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* intensifica la sombra al hacer hover */
+}
+
+.card-image {
+    width: 100%; /* el área de imagen ocupa todo el ancho de la tarjeta */
+    height: 200px; /* altura fija del área de imagen */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo cuando no hay imagen */
+    display: flex; /* usa flex para centrar contenido dentro del área de imagen */
+    align-items: center; /* centra verticalmente el contenido del área de imagen */
+    justify-content: center; /* centra horizontalmente el contenido del área de imagen */
+    font-size: 4rem; /* tamaño grande para iniciales o ícono cuando no hay imagen */
+    color: var(--white); /* color blanco del contenido cuando no hay imagen */
+    position: relative; /* habilita posicionamiento relativo para pseudo-elementos */
+    overflow: hidden; /* recorta contenido que se salga del área de imagen */
+    object-fit: cover; /* propiedad innecesaria en div, usada en img, no tiene efecto aquí */
+}
+
+.card-image img {
+    width: 100%; /* la imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* la imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.card-image::after {
+    content: ''; /* crea un pseudo-elemento decorativo superpuesto */
+    position: absolute; /* posiciona el pseudo-elemento sobre el área de imagen */
+    width: 100%; /* ocupa todo el ancho del área de imagen */
+    height: 100%; /* ocupa toda la altura del área de imagen */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white" opacity="0.1"/></svg>'); /* patrón decorativo con SVG embebido como data URI */
+    opacity: 0.3; /* transparencia del patrón para no distraer demasiado */
+}
+
+.card-content {
+    padding: 1.5rem; /* espacio interno del contenido de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.5rem; /* tamaño de fuente del título de la tarjeta */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    font-weight: 600; /* seminegrita para dar énfasis al título */
+}
+
+.card-category {
+    display: inline-block; /* muestra la categoría como bloque en línea tipo etiqueta */
+    background-color: var(--honey-yellow); /* fondo amarillo miel de la etiqueta de categoría */
+    color: var(--bee-black); /* texto oscuro para la etiqueta de categoría */
+    padding: 0.3rem 1rem; /* espaciado interno de la etiqueta */
+    border-radius: 15px; /* esquinas redondeadas tipo píldora */
+    font-size: 0.8rem; /* tamaño de fuente compacto para la etiqueta */
+    font-weight: 600; /* seminegrita para destacar la etiqueta */
+    margin-bottom: 1rem; /* separación inferior respecto al resto del contenido */
+}
+
+.card-description {
+    color: #666; /* color gris para el texto descriptivo */
+    margin-bottom: 1rem; /* separación inferior bajo la descripción */
+    line-height: 1.6; /* altura de línea para mejorar legibilidad */
+    display: -webkit-box; /* usa caja flexible de WebKit para el truncado en líneas */
+    -webkit-line-clamp: 2; /* limita la descripción a 2 líneas visibles */
+    -webkit-box-orient: vertical; /* orienta la caja en vertical para el truncado */
+    overflow: hidden; /* oculta el contenido que excede las 2 líneas */
+}
+
+.card-footer {
+    display: flex; /* layout flexible para el pie de la tarjeta */
+    justify-content: space-between; /* separa elementos del pie a extremos */
+    align-items: center; /* alinea verticalmente los elementos del pie */
+}
+
+.card-btn {
+    background-color: var(--moss-green); /* fondo verde musgo del botón de la tarjeta */
+    color: var(--white); /* texto blanco para contraste en el botón */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 20px; /* esquinas redondeadas tipo píldora para el botón */
+    text-decoration: none; /* asegura que no haya subrayado si se usa como enlace */
+    font-weight: 600; /* seminegrita para el texto del botón */
+    transition: all 0.3s ease; /* transición suave en hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    border: none; /* sin borde para un look limpio */
+}
+
+.card-btn:hover {
+    background-color: var(--warm-gold); /* cambia el color de fondo a dorado cálido en hover */
+    transform: translateX(5px); /* desplaza ligeramente a la derecha el botón en hover */
+}
+
+/* ========================================
+    MODALES: overlay y contenido
+======================================== */
+.modal {
+    display: none; /* el modal está oculto por defecto */
+    position: fixed; /* posiciona el modal sobre toda la ventana */
+    top: 0; /* desde el borde superior */
+    left: 0; /* desde el borde izquierdo */
+    width: 100%; /* ocupa todo el ancho de la ventana */
+    height: 100%; /* ocupa todo el alto de la ventana */
+    background-color: rgba(0,0,0,0.7); /* overlay oscuro translúcido para enfocar el contenido */
+    z-index: 2000; /* asegura que aparezca por encima del contenido de la página */
+    justify-content: center; /* centra horizontalmente el contenido del modal cuando esté visible */
+    align-items: center; /* centra verticalmente el contenido del modal cuando esté visible */
+    animation: fadeIn 0.3s ease; /* animación de entrada de opacidad del overlay */
+}
+
+.modal.active {
+    display: flex; /* muestra el modal activando el layout flex centrado */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* estado inicial transparente */
+    to { opacity: 1; } /* estado final visible */
+}
+
+.modal-content {
+    background-color: var(--white); /* fondo blanco para el contenido del modal */
+    padding: 2rem; /* espacio interno del modal */
+    border-radius: 20px; /* esquinas redondeadas para el modal */
+    max-width: 500px; /* ancho máximo del modal para buena legibilidad */
+    width: 90%; /* ancho relativo para adaptarse a pantallas más pequeñas */
+    position: relative; /* permite posicionar el botón de cierre dentro del modal */
+    animation: slideUp 0.3s ease; /* animación de entrada hacia arriba del contenido */
+    max-height: 90vh; /* limita la altura para evitar desbordes en pantallas pequeñas */
+    overflow-y: auto; /* permite desplazamiento vertical si el contenido excede */
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* ancho de la barra de desplazamiento interna del modal */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color del carril de la barra de desplazamiento */
+    border-radius: 10px; /* esquinas redondeadas del carril */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--honey-yellow); /* color del pulgar de la barra de desplazamiento */
+    border-radius: 10px; /* esquinas redondeadas del pulgar */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--warm-gold); /* cambia el color del pulgar en hover para feedback */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; } /* estado inicial desplazado hacia abajo y oculto */
+    to { transform: translateY(0); opacity: 1; } /* estado final en posición y visible */
+}
+
+.modal-close {
+    position: absolute; /* posiciona el botón de cierre sobre el contenido del modal */
+    top: 1rem; /* separación desde el borde superior del modal */
+    right: 1rem; /* separación desde el borde derecho del modal */
+    background: none; /* sin fondo para el botón de cierre */
+    border: none; /* sin borde para el botón de cierre */
+    font-size: 1.5rem; /* tamaño del ícono del botón de cierre */
+    cursor: pointer; /* cursor de mano para indicar que es clicable */
+    color: var(--bee-black); /* color del ícono de cierre */
+    transition: color 0.3s ease; /* transición suave al cambiar de color en hover */
+    z-index: 10; /* asegura que el botón quede por encima del contenido interno */
+}
+
+.modal-close:hover {
+    color: var(--honey-yellow); /* cambia el color del botón de cierre a amarillo miel en hover */
+}
+
+.modal h2 {
+    color: var(--bee-black); /* color del título dentro del modal */
+    margin-bottom: 1.5rem; /* separación inferior bajo el título del modal */
+    font-size: 2rem; /* tamaño de fuente del título del modal */
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem; /* separación inferior entre grupos de campos del formulario */
+}
+
+.form-group label {
+    display: block; /* la etiqueta ocupa toda la línea sobre el campo */
+    margin-bottom: 0.5rem; /* espacio entre la etiqueta y el campo */
+    color: var(--bee-black); /* color de texto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%; /* los campos ocupan el ancho completo del contenedor */
+    padding: 0.8rem; /* espacio interno del campo */
+    border: 2px solid #ddd; /* borde gris claro del campo */
+    border-radius: 10px; /* esquinas redondeadas del campo */
+    font-family: 'Poppins', sans-serif; /* fuente del texto del campo */
+    transition: border-color 0.3s ease; /* transición suave al cambiar el color del borde */
+    font-size: 1rem; /* tamaño de fuente del texto del campo */
+    background-color: var(--white); /* fondo blanco del campo */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none; /* elimina el contorno por defecto del navegador en foco */
+    border-color: var(--honey-yellow); /* cambia el color del borde al amarillo miel en foco */
+}
+
+.form-group select {
+    cursor: pointer; /* muestra cursor de mano indicando interacción posible */
+    appearance: none; /* elimina el estilo nativo del select para personalización */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); /* ícono de flecha personalizado embebido como data URI */
+    background-repeat: no-repeat; /* evita que se repita el ícono de flecha */
+    background-position: right 0.8rem center; /* posiciona el ícono a la derecha del select */
+    background-size: 1.2rem; /* tamaño del ícono de flecha */
+    padding-right: 2.5rem; /* añade espacio para que el ícono no se superponga con el texto */
+}
+
+.form-group textarea {
+    resize: vertical; /* permite redimensionar solo en vertical */
+    min-height: 100px; /* altura mínima del área de texto para contenido */
+}
+
+.image-preview {
+    margin-top: 0.5rem; /* separación superior respecto al input de imagen */
+    max-width: 200px; /* ancho máximo de la previsualización de imagen */
+    height: 150px; /* altura fija de la previsualización de imagen */
+    border-radius: 10px; /* esquinas redondeadas del contenedor de imagen */
+    overflow: hidden; /* oculta el contenido que se salga del contenedor */
+    background-color: #f5f5f5; /* fondo gris claro para la previsualización */
+    display: none; /* oculta la previsualización hasta activarse */
+}
+
+.image-preview img {
+    width: 100%; /* la imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* la imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.image-preview.active {
+    display: block; /* muestra la previsualización al activarse */
+}
+
+.modal-btn {
+    width: 100%; /* el botón ocupa todo el ancho disponible */
+    padding: 1rem; /* espacio interno del botón del modal */
+    background-color: var(--honey-yellow); /* color de fondo del botón */
+    color: var(--bee-black); /* color de texto del botón */
+    border: none; /* sin borde por defecto */
+    border-radius: 10px; /* esquinas redondeadas del botón */
+    font-size: 1.1rem; /* tamaño de fuente ligeramente mayor para el botón */
+    font-weight: 600; /* seminegrita para destacar el texto del botón */
+    cursor: pointer; /* cursor de mano indicando que es clicable */
+    transition: all 0.3s ease; /* transición suave para efectos hover */
+}
+
+.modal-btn:hover {
+    background-color: var(--warm-gold); /* cambia el color de fondo al pasar el cursor */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+.detail-modal-image {
+    width: 100%; /* el contenedor de imagen ocupa todo el ancho del modal de detalle */
+    height: 300px; /* altura fija del contenedor de imagen de detalle */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo para el contenedor cuando no hay imagen */
+    border-radius: 15px; /* esquinas redondeadas del contenedor de imagen */
+    margin-bottom: 2rem; /* separación inferior respecto al contenido siguiente */
+    display: flex; /* usa flex para centrar contenido cuando no hay imagen */
+    align-items: center; /* centra verticalmente el contenido */
+    justify-content: center; /* centra horizontalmente el contenido */
+    font-size: 5rem; /* tamaño de fuente grande para iniciales si no hay imagen */
+    overflow: hidden; /* oculta el desbordamiento de la imagen dentro del contenedor */
+    object-fit: cover; /* propiedad innecesaria en div, suele usarse en img, no afecta aquí */
+}
+
+.detail-modal-image img {
+    width: 100%; /* la imagen ocupa el ancho completo del contenedor */
+    height: 100%; /* la imagen ocupa la altura completa del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.detail-info {
+    background-color: #f9f9f9; /* fondo gris muy claro para el bloque de información */
+    padding: 1.5rem; /* espacio interno del bloque de información */
+    border-radius: 15px; /* esquinas redondeadas del bloque de información */
+    margin-bottom: 1.5rem; /* separación inferior respecto al siguiente bloque */
+}
+
+.detail-info-row {
+    display: flex; /* coloca ícono y contenido en fila */
+    align-items: center; /* centra verticalmente ícono y contenido */
+    gap: 1rem; /* espacio entre ícono y contenido */
+    margin-bottom: 1rem; /* separación inferior entre filas de información */
+}
+
+.detail-info-row:last-child {
+    margin-bottom: 0; /* elimina el margen inferior en la última fila */
+}
+
+.detail-info-icon {
+    color: var(--moss-green); /* color verde musgo para el ícono */
+    font-size: 1.3rem; /* tamaño del ícono en las filas de información */
+    width: 30px; /* ancho fijo para alinear íconos en columna */
+    text-align: center; /* centra el ícono dentro de su ancho asignado */
+}
+
+.detail-info-content {
+    flex: 1; /* el contenido ocupa el espacio restante de la fila */
+}
+
+.detail-info-label {
+    font-size: 0.85rem; /* tamaño de la etiqueta del campo de información */
+    color: #999; /* color gris para la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+    margin-bottom: 0.2rem; /* pequeña separación bajo la etiqueta */
+}
+
+.detail-info-value {
+    color: var(--bee-black); /* color oscuro para el valor del campo */
+    font-weight: 600; /* seminegrita para destacar el valor */
+}
+
+
+
+/* ========================================
+    FOOTER - PIE DE PÁGINA
+======================================== */
+footer {
+    background-color: var(--bee-black); /* color de fondo oscuro del footer */
+    color: var(--white); /* color de texto principal del footer */
+    padding: 3rem 2rem 1.5rem; /* espacio interno superior, lateral y inferior del footer */
+    margin-top: 4rem; /* separación superior respecto al contenido previo */
+}
+
+/* Contenedor principal del contenido del footer */
+.footer-content {
+    max-width: 1400px; /* ancho máximo del footer para limitar el contenido */
+    margin: 0 auto; /* centra el contenedor horizontalmente */
+    display: grid; /* usa grid para distribuir las secciones del footer */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* columnas adaptables con mínimo 250px por sección */
+    gap: 2rem; /* separación entre secciones del footer */
+    margin-bottom: 2rem; /* separación inferior respecto a la banda del footer-bottom */
+}
+
+/* Títulos de cada sección del footer */
+.footer-section h3 {
+    color: var(--honey-yellow); /* color amarillo para destacar los títulos */
+    margin-bottom: 1rem; /* separación inferior del título */
+    font-size: 1.3rem; /* tamaño de fuente del título en cada sección */
+}
+
+/* Párrafos dentro de las secciones del footer */
+.footer-section p {
+    margin-bottom: 0.5rem; /* separación inferior entre párrafos */
+    color: #ccc; /* color gris claro para el texto del párrafo */
+}
+
+/* Grupo de enlaces sociales */
+.social-links {
+    display: flex; /* usa flex para alinear los íconos en fila */
+    gap: 1rem; /* espacio entre cada enlace social */
+    margin-top: 1rem; /* separación superior respecto al texto previo */
+}
+
+/* Estilo de cada enlace social */
+.social-links a {
+    color: var(--white); /* color blanco para los íconos por defecto */
+    font-size: 1.5rem; /* tamaño del ícono dentro del enlace */
+    transition: all 0.3s ease; /* transición suave para hover */
+    display: flex; /* usa flex para centrar el ícono dentro del botón circular */
+    align-items: center; /* centra verticalmente el ícono */
+    justify-content: center; /* centra horizontalmente el ícono */
+    width: 40px; /* ancho del botón circular social */
+    height: 40px; /* alto del botón circular social */
+    background-color: rgba(255,255,255,0.1); /* fondo blanco translúcido para el botón */
+    border-radius: 50%; /* hace el botón social completamente circular */
+}
+
+/* Efecto hover en enlaces sociales */
+.social-links a:hover {
+    color: var(--honey-yellow); /* cambia el color del ícono a amarillo en hover */
+    background-color: rgba(255, 201, 60, 0.2); /* aclara el fondo del botón en hover */
+    transform: translateY(-3px); /* levanta ligeramente el botón para dar feedback */
+}
+
+/* Banda inferior del footer con borde y texto centrado */
+.footer-bottom {
+    text-align: center; /* centra el texto de la banda inferior */
+    padding-top: 2rem; /* separación superior interna en la banda inferior */
+    border-top: 1px solid rgba(255,255,255,0.1); /* línea superior sutil para separar contenido del footer */
+    color: #999; /* color gris para el texto de la banda inferior */
+}
+
+
+/* ========================================
+    SECCIÓN DE PERFIL
+======================================== */
+
+.perfil-section {
+    max-width: 1400px; /* ancho máximo del contenedor de la sección de perfil */
+    margin: 3rem auto; /* margen superior/inferior y centrado horizontal */
+    padding: 2rem; /* espacio interno de la sección */
+    display: none; /* oculto por defecto hasta activarse */
+}
+
+.perfil-section.active {
+    display: block; /* muestra la sección cuando tiene la clase active */
+}
+
+/* Encabezado del perfil con fondo degradado y estilo destacado */
+.perfil-header {
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* fondo degradado en diagonal usando variables de color */
+    border-radius: 20px; /* esquinas redondeadas del encabezado */
+    padding: 3rem 2rem; /* espacio interno amplio para el contenido del encabezado */
+    color: var(--white); /* texto en color blanco para contraste */
+    text-align: center; /* centra el contenido del encabezado */
+    margin-bottom: 3rem; /* separación inferior respecto al contenido siguiente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+}
+
+/* Avatar circular con iniciales del usuario */
+.perfil-avatar {
+    width: 120px; /* ancho del avatar */
+    height: 120px; /* alto del avatar */
+    border-radius: 50%; /* hace el avatar completamente circular */
+    margin: 0 auto 1rem; /* centra el avatar y añade margen inferior */
+    display: flex; /* usa flex para centrar el contenido interno */
+    align-items: center; /* centra verticalmente la inicial del avatar */
+    justify-content: center; /* centra horizontalmente la inicial del avatar */
+    font-size: 3rem; /* tamaño de la inicial dentro del avatar */
+    border: 4px solid rgba(255,255,255,0.3); /* borde blanco translúcido alrededor del avatar */
+}
+
+/* Nombre del usuario destacado */
+.perfil-name {
+    font-size: 2rem; /* tamaño de fuente del nombre del usuario */
+    margin-bottom: 0.5rem; /* espacio inferior bajo el nombre */
+    font-weight: 700; /* peso de fuente en negrita para destacar */
+}
+
+/* Biografía corta del usuario */
+.perfil-bio {
+    font-size: 1rem; /* tamaño de fuente de la bio */
+    opacity: 0.9; /* ligera transparencia para suavizar el texto */
+    max-width: 600px; /* ancho máximo de la bio para evitar líneas demasiado largas */
+    margin: 0 auto 1.5rem; /* centra la bio y añade margen inferior */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+/* Bloque de estadísticas del perfil */
+.perfil-stats {
+    display: flex; /* layout flexible para las estadísticas */
+    justify-content: center; /* centra las estadísticas horizontalmente */
+    gap: 3rem; /* espacio entre elementos de estadísticas */
+    margin-top: 2rem; /* separación superior respecto a la bio */
+    flex-wrap: wrap; /* permite que las estadísticas salten de línea en pantallas pequeñas */
+}
+
+.stat-item {
+    text-align: center; /* centra el contenido de cada estadística */
+}
+
+.stat-number {
+    font-size: 2rem; /* tamaño de fuente del número de estadísticas */
+    font-weight: 700; /* negrita para resaltar el número */
+    display: block; /* muestra el número como bloque para controlar el flujo vertical */
+}
+
+.stat-label {
+    font-size: 0.9rem; /* tamaño de fuente de la etiqueta de estadísticas */
+    opacity: 0.8; /* ligera transparencia para la etiqueta */
+}
+
+/* Acciones principales del perfil en el encabezado */
+.perfil-actions {
+    display: flex; /* layout flexible para los botones de acción */
+    gap: 1rem; /* espacio entre botones de acción */
+    justify-content: center; /* centra los botones horizontalmente */
+    flex-wrap: wrap; /* permite que los botones se ajusten en varias líneas si es necesario */
+}
+
+.btn-editar-perfil {
+    background-color: var(--white); /* fondo blanco para el botón editar */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    border: 2px solid rgba(255,255,255,0.3); /* borde blanco translúcido para integración con el header */
+}
+
+.btn-editar-perfil:hover {
+    background-color: rgba(255,255,255,0.9); /* aclara el fondo al hacer hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+/* Contenido principal del perfil debajo del header */
+.perfil-content {
+    background-color: var(--white); /* fondo blanco para el bloque de contenido */
+    border-radius: 20px; /* esquinas redondeadas del bloque de contenido */
+    padding: 2rem; /* espacio interno del bloque de contenido */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para separar del fondo */
+}
+
+/* ========================================
+    Tabs internas del perfil
+======================================== */
+.perfil-tabs {
+    display: flex; /* coloca las pestañas en fila */
+    gap: 1rem; /* espacio entre pestañas */
+    margin-bottom: 2rem; /* espacio inferior bajo las pestañas */
+    border-bottom: 2px solid #eee; /* línea inferior para separar visualmente las pestañas del contenido */
+}
+
+.tab-btn {
+    padding: 1rem 2rem; /* espacio interno de cada pestaña */
+    background: none; /* sin fondo por defecto */
+    border: none; /* sin borde por defecto */
+    color: #666; /* color de texto gris por defecto */
+    font-size: 1rem; /* tamaño de fuente de cada pestaña */
+    font-weight: 600; /* seminegrita para mejor legibilidad */
+    cursor: pointer; /* cursor de mano para indicar que es interactiva */
+    transition: all 0.3s ease; /* transición suave para cambios de estado */
+    border-bottom: 3px solid transparent; /* línea inferior transparente por defecto para efecto de selección */
+}
+
+.tab-btn.active {
+    color: var(--honey-yellow); /* color amarillo miel al estar activa */
+    border-bottom-color: var(--honey-yellow); /* resalta la línea inferior al estar activa */
+}
+
+.tab-btn:hover {
+    color: var(--warm-gold); /* cambia a dorado cálido al pasar el cursor */
+}
+
+/* ========================================
+    Grid de mis publicaciones
+======================================== */
+.mis-publicaciones {
+    display: grid; /* usa grid para distribuir las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* crea columnas flexibles mínimo 300px, llenando el espacio disponible */
+    gap: 2rem; /* espacio entre tarjetas */
+}
+
+/* Acciones dentro de cada tarjeta de publicación */
+.card-actions {
+    display: flex; /* layout flexible para botones dentro de la tarjeta */
+    gap: 0.5rem; /* separación entre botones */
+    margin-top: 1rem; /* espacio superior respecto al contenido de la tarjeta */
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1; /* cada botón ocupa el mismo espacio disponible */
+    padding: 0.6rem; /* espacio interno del botón */
+    border: none; /* sin borde por defecto */
+    border-radius: 10px; /* esquinas redondeadas para los botones */
+    font-weight: 600; /* seminegrita para destacar el texto del botón */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave para hover y estados */
+    display: flex; /* alinea ícono y texto del botón con flex */
+    align-items: center; /* centra verticalmente el contenido del botón */
+    justify-content: center; /* centra horizontalmente el contenido del botón */
+    gap: 0.5rem; /* espacio entre ícono y texto del botón */
+}
+
+.btn-edit {
+    background-color: var(--moss-green); /* fondo verde musgo para el botón editar */
+    color: var(--white); /* texto en blanco para contraste */
+}
+
+.btn-edit:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+.btn-delete {
+    background-color: #e74c3c; /* rojo para indicar acción peligrosa o de eliminación */
+    color: var(--white); /* texto en blanco para contraste */
+}
+
+.btn-delete:hover {
+    background-color: #c0392b; /* rojo más oscuro en hover para feedback visual */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+/* Estado vacío cuando no hay publicaciones */
+.empty-state {
+    text-align: center; /* centra el contenido del estado vacío */
+    padding: 4rem 2rem; /* espacio interno amplio para aire visual */
+    color: #999; /* color gris para el texto del estado vacío */
+}
+
+.empty-state i {
+    font-size: 4rem; /* tamaño grande para el ícono de estado vacío */
+    margin-bottom: 1rem; /* espacio inferior bajo el ícono */
+    color: #ddd; /* color gris claro para el ícono */
+}
+
+.empty-state h3 {
+    color: #666; /* color gris para el título del estado vacío */
+    margin-bottom: 0.5rem; /* espacio inferior bajo el título */
+}
+
+/* ========================================
+    Acciones del perfil en el header
+======================================== */
+.perfil-actions {
+    display: flex; /* layout flexible para las acciones del perfil */
+    gap: 1rem; /* espacio entre botones de acción */
+    justify-content: center; /* centra los botones de acción */
+    margin-top: 2rem; /* separación superior respecto a estadísticas */
+}
+
+.btn-perfil {
+    padding: 0.8rem 2rem; /* espacio interno del botón de perfil */
+    border: none; /* sin borde por defecto */
+    border-radius: 25px; /* esquinas redondeadas tipo píldora */
+    font-weight: 600; /* seminegrita para el texto del botón */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave para hover */
+    display: flex; /* alinea ícono y texto del botón con flex */
+    align-items: center; /* centra verticalmente el contenido del botón */
+    gap: 0.5rem; /* espacio entre ícono y texto del botón */
+    font-size: 1rem; /* tamaño de fuente del botón */
+}
+
+.btn-editar-perfil {
+    background-color: var(--white); /* fondo blanco para el botón de editar perfil */
+    color: var(--bee-black); /* texto oscuro para buena legibilidad */
+    border: 2px solid rgba(255,255,255,0.3); /* borde translúcido para integrarse con el header */
+}
+
+.btn-editar-perfil:hover {
+    background-color: rgba(255,255,255,0.9); /* aclara el fondo en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+.btn-cerrar-sesion {
+    background-color: transparent; /* fondo transparente para el botón de cerrar sesión */
+    color: var(--white); /* texto blanco para contraste sobre el header */
+    border: 2px solid var(--white); /* borde blanco para delimitar el botón */
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: rgba(255,255,255,0.1); /* añade leve fondo blanco translúcido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+
+/* ========================================
+    LOGIN Y REGISTRO
+======================================== */
+.auth-container {
+    display: none; /* El contenedor de autenticación está oculto por defecto */
+    position: fixed; /* Se posiciona fijo para cubrir toda la ventana */
+    top: 0; /* Se ubica desde la parte superior */
+    left: 0; /* Se ubica desde la parte izquierda */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa todo el alto de la ventana */
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* Fondo con degradado diagonal usando variables de color */
+    z-index: 3000; /* Se asegura de quedar por encima de otros elementos */
+    justify-content: center; /* Centra horizontalmente el contenido interno cuando esté visible */
+    align-items: center; /* Centra verticalmente el contenido interno cuando esté visible */
+    padding: 2rem; /* Añade espacio interno alrededor del contenido */
+}
+
+.auth-container.active {
+    display: flex; /* Muestra el contenedor y activa el centrado con flex */
+}
+
+/* Caja principal del módulo de autenticación */
+.auth-box {
+    background-color: var(--white); /* Fondo blanco para la caja */
+    padding: 3rem; /* Espaciado interno amplio para contenido */
+    border-radius: 30px; /* Bordes redondeados para un estilo suave */
+    max-width: 450px; /* Limita el ancho máximo de la caja */
+    width: 100%; /* Permite que la caja sea responsiva y ocupe el ancho disponible */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Sombra profunda para destacar sobre el fondo */
+    position: relative; /* Contexto de posicionamiento para elementos internos */
+    animation: slideUp 0.4s ease; /* Animación de entrada hacia arriba al aparecer */
+}
+
+/* Encabezado con logo y textos */
+.auth-logo {
+    text-align: center; /* Centra el contenido del logo */
+    margin-bottom: 2rem; /* Espacio inferior para separar del contenido siguiente */
+}
+
+.auth-logo i {
+    font-size: 4rem; /* Tamaño grande para el ícono */
+    color: var(--honey-yellow); /* Color amarillo miel para el ícono */
+}
+
+.auth-logo h2 {
+    color: var(--bee-black); /* Color negro abeja para el título */
+    font-size: 2.5rem; /* Tamaño de fuente del título del módulo */
+    margin-top: 0.5rem; /* Espacio superior para separar del ícono */
+}
+
+.auth-logo p {
+    color: #666; /* Color gris para el subtítulo */
+    font-size: 1rem; /* Tamaño de fuente estándar para el subtítulo */
+}
+
+/* ========================================
+   Tabs de autenticación
+======================================== */
+.auth-tabs {
+    display: flex; /* Usa flex para colocar las pestañas en fila */
+    gap: 1rem; /* Espacio entre cada pestaña */
+    margin-bottom: 2rem; /* Separación debajo del grupo de pestañas */
+    background-color: #f5f5f5; /* Fondo gris claro para el contenedor de pestañas */
+    padding: 0.5rem; /* Espaciado interno del contenedor de pestañas */
+    border-radius: 15px; /* Bordes redondeados del contenedor de pestañas */
+}
+
+.auth-tab {
+    flex: 1; /* Cada pestaña ocupa el mismo ancho disponible */
+    padding: 0.8rem; /* Espaciado interno de la pestaña */
+    background: none; /* Fondo transparente por defecto en la pestaña */
+    border: none; /* Sin borde por defecto */
+    border-radius: 10px; /* Bordes redondeados en cada pestaña */
+    font-weight: 600; /* Fuente seminegrita para mejor legibilidad */
+    cursor: pointer; /* Muestra cursor de mano para indicar que es clicable */
+    transition: all 0.3s ease; /* Transición suave en estados hover/active */
+    color: #666; /* Color de texto gris por defecto en pestañas */
+}
+
+.auth-tab.active {
+    background-color: var(--honey-yellow); /* Fondo amarillo cuando la pestaña está activa */
+    color: var(--bee-black); /* Texto negro para contraste en la pestaña activa */
+}
+
+/* ========================================
+   Formularios de autenticación
+======================================== */
+.auth-form {
+    display: none; /* Los formularios están ocultos por defecto */
+}
+
+.auth-form.active {
+    display: block; /* Muestra el formulario activo */
+    animation: fadeIn 0.3s ease; /* Animación de aparción suave para el formulario */
+}
+
+/* Grupo de campos de formulario */
+.input-group {
+    margin-bottom: 1.5rem; /* Separación inferior entre grupos de inputs */
+}
+
+.input-group label {
+    display: block; /* La etiqueta ocupa toda la línea sobre el input */
+    margin-bottom: 0.5rem; /* Espacio entre la etiqueta y el input */
+    color: var(--bee-black); /* Color negro abeja para la etiqueta */
+    font-weight: 600; /* Seminegrita para resaltar la etiqueta */
+    font-size: 0.9rem; /* Tamaño moderado de la etiqueta */
+}
+
+/* Contenedor del input con ícono */
+.input-wrapper {
+    position: relative; /* Permite posicionar el ícono dentro del input */
+}
+
+.input-wrapper i {
+    position: absolute; /* Posiciona el ícono de forma absoluta respecto al wrapper */
+    left: 1rem; /* Ubica el ícono a la izquierda dentro del input */
+    top: 50%; /* Centra verticalmente el ícono respecto al input */
+    transform: translateY(-50%); /* Ajusta el centrado vertical del ícono */
+    color: #999; /* Color gris para el ícono del input */
+}
+
+.input-group input {
+    width: 100%; /* El input ocupa todo el ancho disponible */
+    padding: 1rem 1rem 1rem 3rem; /* Añade padding con espacio extra a la izquierda para el ícono */
+    border: 2px solid #e0e0e0; /* Borde gris claro alrededor del input */
+    border-radius: 12px; /* Bordes redondeados para el input */
+    font-size: 1rem; /* Tamaño estándar del texto del input */
+    transition: all 0.3s ease; /* Transición suave en foco o interacción */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna para el input */
+}
+
+.input-group input:focus {
+    outline: none; /* Quita el contorno azul por defecto del navegador */
+    border-color: var(--honey-yellow); /* Cambia el color del borde al amarillo miel en foco */
+    box-shadow: 0 0 0 3px rgba(255, 201, 60, 0.1); /* Sombra suave amarilla para indicar foco */
+}
+
+/* Botón principal de autenticación */
+.auth-btn {
+    width: 100%; /* El botón ocupa todo el ancho del formulario */
+    padding: 1rem; /* Espaciado interno del botón */
+    background-color: var(--honey-yellow); /* Fondo amarillo miel del botón */
+    color: var(--bee-black); /* Texto negro para contraste con el fondo */
+    border: none; /* El botón no tiene borde visible */
+    border-radius: 12px; /* Bordes redondeados del botón */
+    font-size: 1.1rem; /* Tamaño ligeramente mayor para el texto del botón */
+    font-weight: 700; /* Texto en negrita para el botón */
+    cursor: pointer; /* Cursor de mano para indicar clic */
+    transition: all 0.3s ease; /* Transición suave en hover */
+    display: flex; /* Flex para alinear ícono y texto del botón */
+    align-items: center; /* Centra verticalmente el contenido del botón */
+    justify-content: center; /* Centra horizontalmente el contenido del botón */
+    gap: 0.5rem; /* Espacio entre el ícono y el texto del botón */
+}
+
+.auth-btn:hover {
+    background-color: var(--warm-gold); /* Cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* Levanta ligeramente el botón al pasar el cursor */
+    box-shadow: 0 6px 20px rgba(232, 163, 23, 0.4); /* Sombra más pronunciada en hover */
+}
+
+/* Pie del formulario con enlaces de cambio de tab */
+.auth-footer {
+    text-align: center; /* Centra el contenido del pie del formulario */
+    margin-top: 1.5rem; /* Separación superior respecto al botón del formulario */
+    color: #666; /* Color gris para el texto del pie */
+    font-size: 0.9rem; /* Tamaño de texto del pie del formulario */
+}
+
+/* ========================================
+    Mensajes de estado: error y éxito
+======================================== */
+.error-message {
+    background-color: #ffe6e6; /* Fondo rosado claro para indicar error */
+    color: #c0392b; /* Texto rojo para el mensaje de error */
+    padding: 0.8rem; /* Espaciado interno del mensaje de error */
+    border-radius: 8px; /* Bordes redondeados del mensaje de error */
+    margin-bottom: 1rem; /* Separación inferior respecto a otros elementos */
+    font-size: 0.9rem; /* Tamaño de texto del mensaje de error */
+    display: none; /* Oculto por defecto hasta que se muestre */
+    align-items: center; /* Centra verticalmente ícono y texto cuando esté visible */
+    gap: 0.5rem; /* Espacio entre ícono y texto del mensaje */
+}
+
+.error-message.show {
+    display: flex; /* Muestra el mensaje de error con layout flexible */
+}
+
+.success-message {
+    background-color: #e6f7e6; /* Fondo verde claro para indicar éxito */
+    color: #27ae60; /* Texto verde para el mensaje de éxito */
+    padding: 0.8rem; /* Espaciado interno del mensaje de éxito */
+    border-radius: 8px; /* Bordes redondeados del mensaje de éxito */
+    margin-bottom: 1rem; /* Separación inferior respecto a otros elementos */
+    font-size: 0.9rem; /* Tamaño de texto del mensaje de éxito */
+    display: none; /* Oculto por defecto hasta que se muestre */
+    align-items: center; /* Centra verticalmente ícono y texto cuando esté visible */
+    gap: 0.5rem; /* Espacio entre ícono y texto del mensaje */
+}
+
+.success-message.show {
+    display: flex; /* Muestra el mensaje de éxito con layout flexible */
+}
+
+/* ========================================
+    Menú de usuario en el header
+======================================== */
+
+.user-menu {
+    display: none; /* Oculto por defecto hasta que el usuario esté autenticado */
+    align-items: center; /* Alinea verticalmente los elementos del menú de usuario */
+    gap: 1rem; /* Espacio entre elementos del menú de usuario */
+    color: var(--white); /* Color blanco para el texto del menú de usuario */
+}
+
+.user-menu.active {
+    display: flex; /* Muestra el menú de usuario cuando está activo */
+}
+
+.user-name {
+    font-weight: 600; /* Aplica seminegrita al nombre del usuario para destacarlo */
+}
+
+/* ========================================
+    RESPONSIVE - MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú móvil en pantallas pequeñas */
+    }
+
+    nav ul {
+        position: fixed; /* Fija el menú para que pueda deslizar desde el borde */
+        top: 70px; /* Posiciona el menú debajo del header */
+        left: -100%; /* Oculta el menú fuera de la pantalla inicialmente */
+        background-color: var(--bee-black); /* Fondo negro abeja para el menú móvil */
+        width: 100%; /* El menú ocupa todo el ancho de la pantalla en móvil */
+        flex-direction: column; /* Coloca los elementos del menú en columna */
+        padding: 2rem; /* Espaciado interno del menú móvil */
+        transition: left 0.3s ease; /* Animación suave para el deslizamiento del menú */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para separar visualmente el menú */
+    }
+
+    nav ul.active {
+        left: 0; /* Muestra el menú deslizando desde el borde izquierdo */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Reduce el tamaño del título principal en móvil */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajusta el tamaño del texto descriptivo en móvil */
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr; /* Las tarjetas se muestran en una sola columna en móvil */
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem; /* Reduce el tamaño del título de sección en móvil */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* El footer se muestra en una sola columna para móvil */
+        text-align: center; /* Centra el contenido del footer en móvil */
+    }
+
+    .social-links {
+        justify-content: center; /* Centra los íconos de redes sociales en móvil */
+    }
+}
+
+/* ========================================
+   BARRA DE BÚSQUEDA MEJORADA - TEMA HIVEMENU
+======================================== */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#searchType {
+    padding: 1rem 2.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 25px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    cursor: pointer;
+    min-width: 180px;
+    font-weight: 600;
+    color: var(--bee-black);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%237B904B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+#searchType:hover {
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    transform: translateY(-2px);
+}
+
+#searchType:focus {
+    border-color: var(--warm-gold);
+    box-shadow: 0 0 0 3px rgba(232, 163, 23, 0.15);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    transition: all 0.3s ease;
+    color: var(--bee-black);
+}
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    background: var(--white);
+}
+
+.search-bar > i {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--moss-green);
+    font-size: 1.3rem;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+#searchInput:focus ~ i {
+    color: var(--honey-yellow);
+}
+
+/* Animación de búsqueda */
+@keyframes searchPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+.search-bar.searching > i {
+    animation: searchPulse 1s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #searchType {
+        width: 100%;
+    }
+    
+    .search-bar > i {
+        right: 2rem;
+    }
+}

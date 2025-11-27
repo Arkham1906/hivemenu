@@ -1,0 +1,376 @@
+/* ========================================
+    MODAL DE CREACIÓN
+======================================== */
+.modal {
+    display: none; /* el modal está oculto por defecto */
+    position: fixed; /* se posiciona fijo para cubrir toda la ventana */
+    top: 0; /* se ubica desde la parte superior */
+    left: 0; /* se ubica desde la parte izquierda */
+    width: 100%; /* ocupa todo el ancho de la ventana */
+    height: 100%; /* ocupa todo el alto de la ventana */
+    background-color: rgba(0,0,0,0.7); /* fondo oscuro translúcido para el overlay */
+    z-index: 2000; /* asegura que quede por encima de otros elementos */
+    justify-content: center; /* centra horizontalmente el contenido interno */
+    align-items: center; /* centra verticalmente el contenido interno */
+    animation: fadeIn 0.3s ease; /* animación de entrada con efecto de opacidad */
+}
+
+.modal.active {
+    display: flex; /* muestra el modal cuando tiene la clase active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* estado inicial transparente */
+    to { opacity: 1; } /* estado final visible */
+}
+
+.modal-content {
+    background-color: var(--white); /* fondo blanco para el contenido del modal */
+    padding: 2rem; /* espacio interno del modal */
+    border-radius: 20px; /* esquinas redondeadas del modal */
+    max-width: 500px; /* ancho máximo del modal */
+    width: 90%; /* ancho relativo para adaptarse a pantallas pequeñas */
+    position: relative; /* permite posicionar elementos internos como el botón de cierre */
+    animation: slideUp 0.3s ease; /* animación de entrada hacia arriba */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; } /* estado inicial desplazado hacia abajo y oculto */
+    to { transform: translateY(0); opacity: 1; } /* estado final en posición y visible */
+}
+
+.modal-close {
+    position: absolute; /* posiciona el botón de cierre dentro del modal */
+    top: 1rem; /* separación desde el borde superior */
+    right: 1rem; /* separación desde el borde derecho */
+    background: none; /* sin fondo para el botón */
+    border: none; /* sin borde para el botón */
+    font-size: 1.5rem; /* tamaño del ícono de cierre */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    color: var(--bee-black); /* color oscuro para el ícono de cierre */
+    transition: color 0.3s ease; /* transición suave al cambiar de color */
+}
+
+.modal-close:hover {
+    color: var(--honey-yellow); /* cambia a amarillo miel en hover */
+}
+
+.modal h2 {
+    color: var(--bee-black); /* color del título dentro del modal */
+    margin-bottom: 1.5rem; /* separación inferior bajo el título */
+    font-size: 2rem; /* tamaño de fuente del título */
+}
+
+/* ========================================
+    CAMPOS DEL FORMULARIO
+======================================== */
+.form-group {
+    margin-bottom: 1.5rem; /* separación inferior entre grupos de campos */
+}
+
+.form-group label {
+    display: block; /* la etiqueta ocupa toda la línea sobre el campo */
+    margin-bottom: 0.5rem; /* espacio entre la etiqueta y el campo */
+    color: var(--bee-black); /* color de texto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%; /* los campos ocupan todo el ancho disponible */
+    padding: 0.8rem; /* espacio interno de los campos */
+    border: 2px solid #ddd; /* borde gris claro */
+    border-radius: 10px; /* esquinas redondeadas */
+    font-family: 'Poppins', sans-serif; /* fuente moderna */
+    transition: border-color 0.3s ease; /* transición suave para el borde */
+    font-size: 1rem; /* tamaño de fuente estándar */
+    background-color: var(--white); /* fondo blanco */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none; /* elimina el contorno por defecto */
+    border-color: var(--honey-yellow); /* cambia el color del borde en foco */
+}
+
+.form-group select {
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    appearance: none; /* elimina el estilo nativo del select */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); /* ícono de flecha personalizado */
+    background-repeat: no-repeat; /* evita que se repita el ícono */
+    background-position: right 0.8rem center; /* posiciona el ícono a la derecha */
+    background-size: 1.2rem; /* tamaño del ícono */
+    padding-right: 2.5rem; /* espacio adicional para el ícono */
+}
+
+.form-group select:hover {
+    border-color: var(--moss-green); /* cambia el borde a verde musgo en hover */
+}
+
+.form-group textarea {
+    resize: vertical; /* permite redimensionar solo en vertical */
+    min-height: 100px; /* altura mínima del área de texto */
+}
+
+/* ========================================
+    BOTONES DEL MODAL
+======================================== */
+.modal-btn {
+    width: 100%; /* el botón ocupa todo el ancho disponible */
+    padding: 1rem; /* espacio interno del botón */
+    background-color: var(--honey-yellow); /* fondo amarillo miel */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    border: none; /* sin borde */
+    border-radius: 10px; /* esquinas redondeadas */
+    font-size: 1.1rem; /* tamaño de fuente ligeramente mayor */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.modal-btn:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+.modal-btn-delete {
+    background-color: #e74c3c; /* rojo para indicar acción peligrosa (eliminar) */
+    margin-top: 1rem; /* separación superior respecto a otros botones */
+}
+
+.modal-btn-delete:hover {
+    background-color: #c0392b; /* rojo más oscuro en hover para feedback visual */
+}
+
+/* ========================================
+    MODALES: overlay y contenido
+======================================== */
+.modal {
+    display: none; /* el modal está oculto por defecto */
+    position: fixed; /* posiciona el modal sobre toda la ventana */
+    top: 0; /* desde el borde superior */
+    left: 0; /* desde el borde izquierdo */
+    width: 100%; /* ocupa todo el ancho de la ventana */
+    height: 100%; /* ocupa todo el alto de la ventana */
+    background-color: rgba(0,0,0,0.7); /* overlay oscuro translúcido para enfocar el contenido */
+    z-index: 2000; /* asegura que aparezca por encima del contenido de la página */
+    justify-content: center; /* centra horizontalmente el contenido del modal cuando esté visible */
+    align-items: center; /* centra verticalmente el contenido del modal cuando esté visible */
+    animation: fadeIn 0.3s ease; /* animación de entrada de opacidad del overlay */
+}
+
+.modal.active {
+    display: flex; /* muestra el modal activando el layout flex centrado */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* estado inicial transparente */
+    to { opacity: 1; } /* estado final visible */
+}
+
+.modal-content {
+    background-color: var(--white); /* fondo blanco para el contenido del modal */
+    padding: 2rem; /* espacio interno del modal */
+    border-radius: 20px; /* esquinas redondeadas para el modal */
+    max-width: 500px; /* ancho máximo del modal para buena legibilidad */
+    width: 90%; /* ancho relativo para adaptarse a pantallas más pequeñas */
+    position: relative; /* permite posicionar el botón de cierre dentro del modal */
+    animation: slideUp 0.3s ease; /* animación de entrada hacia arriba del contenido */
+    max-height: 90vh; /* limita la altura para evitar desbordes en pantallas pequeñas */
+    overflow-y: auto; /* permite desplazamiento vertical si el contenido excede */
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* ancho de la barra de desplazamiento interna del modal */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color del carril de la barra de desplazamiento */
+    border-radius: 10px; /* esquinas redondeadas del carril */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--honey-yellow); /* color del pulgar de la barra de desplazamiento */
+    border-radius: 10px; /* esquinas redondeadas del pulgar */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--warm-gold); /* cambia el color del pulgar en hover para feedback */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; } /* estado inicial desplazado hacia abajo y oculto */
+    to { transform: translateY(0); opacity: 1; } /* estado final en posición y visible */
+}
+
+.modal-close {
+    position: absolute; /* posiciona el botón de cierre sobre el contenido del modal */
+    top: 1rem; /* separación desde el borde superior del modal */
+    right: 1rem; /* separación desde el borde derecho del modal */
+    background: none; /* sin fondo para el botón de cierre */
+    border: none; /* sin borde para el botón de cierre */
+    font-size: 1.5rem; /* tamaño del ícono del botón de cierre */
+    cursor: pointer; /* cursor de mano para indicar que es clicable */
+    color: var(--bee-black); /* color del ícono de cierre */
+    transition: color 0.3s ease; /* transición suave al cambiar de color en hover */
+    z-index: 10; /* asegura que el botón quede por encima del contenido interno */
+}
+
+.modal-close:hover {
+    color: var(--honey-yellow); /* cambia el color del botón de cierre a amarillo miel en hover */
+}
+
+.modal h2 {
+    color: var(--bee-black); /* color del título dentro del modal */
+    margin-bottom: 1.5rem; /* separación inferior bajo el título del modal */
+    font-size: 2rem; /* tamaño de fuente del título del modal */
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem; /* separación inferior entre grupos de campos del formulario */
+}
+
+.form-group label {
+    display: block; /* la etiqueta ocupa toda la línea sobre el campo */
+    margin-bottom: 0.5rem; /* espacio entre la etiqueta y el campo */
+    color: var(--bee-black); /* color de texto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%; /* los campos ocupan el ancho completo del contenedor */
+    padding: 0.8rem; /* espacio interno del campo */
+    border: 2px solid #ddd; /* borde gris claro del campo */
+    border-radius: 10px; /* esquinas redondeadas del campo */
+    font-family: 'Poppins', sans-serif; /* fuente del texto del campo */
+    transition: border-color 0.3s ease; /* transición suave al cambiar el color del borde */
+    font-size: 1rem; /* tamaño de fuente del texto del campo */
+    background-color: var(--white); /* fondo blanco del campo */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none; /* elimina el contorno por defecto del navegador en foco */
+    border-color: var(--honey-yellow); /* cambia el color del borde al amarillo miel en foco */
+}
+
+.form-group select {
+    cursor: pointer; /* muestra cursor de mano indicando interacción posible */
+    appearance: none; /* elimina el estilo nativo del select para personalización */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); /* ícono de flecha personalizado embebido como data URI */
+    background-repeat: no-repeat; /* evita que se repita el ícono de flecha */
+    background-position: right 0.8rem center; /* posiciona el ícono a la derecha del select */
+    background-size: 1.2rem; /* tamaño del ícono de flecha */
+    padding-right: 2.5rem; /* añade espacio para que el ícono no se superponga con el texto */
+}
+
+.form-group textarea {
+    resize: vertical; /* permite redimensionar solo en vertical */
+    min-height: 100px; /* altura mínima del área de texto para contenido */
+}
+
+.image-preview {
+    margin-top: 0.5rem; /* separación superior respecto al input de imagen */
+    max-width: 200px; /* ancho máximo de la previsualización de imagen */
+    height: 150px; /* altura fija de la previsualización de imagen */
+    border-radius: 10px; /* esquinas redondeadas del contenedor de imagen */
+    overflow: hidden; /* oculta el contenido que se salga del contenedor */
+    background-color: #f5f5f5; /* fondo gris claro para la previsualización */
+    display: none; /* oculta la previsualización hasta activarse */
+}
+
+.image-preview img {
+    width: 100%; /* la imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* la imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.image-preview.active {
+    display: block; /* muestra la previsualización al activarse */
+}
+
+.modal-btn {
+    width: 100%; /* el botón ocupa todo el ancho disponible */
+    padding: 1rem; /* espacio interno del botón del modal */
+    background-color: var(--honey-yellow); /* color de fondo del botón */
+    color: var(--bee-black); /* color de texto del botón */
+    border: none; /* sin borde por defecto */
+    border-radius: 10px; /* esquinas redondeadas del botón */
+    font-size: 1.1rem; /* tamaño de fuente ligeramente mayor para el botón */
+    font-weight: 600; /* seminegrita para destacar el texto del botón */
+    cursor: pointer; /* cursor de mano indicando que es clicable */
+    transition: all 0.3s ease; /* transición suave para efectos hover */
+}
+
+.modal-btn:hover {
+    background-color: var(--warm-gold); /* cambia el color de fondo al pasar el cursor */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+.detail-modal-image {
+    width: 100%; /* el contenedor de imagen ocupa todo el ancho del modal de detalle */
+    height: 300px; /* altura fija del contenedor de imagen de detalle */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo para el contenedor cuando no hay imagen */
+    border-radius: 15px; /* esquinas redondeadas del contenedor de imagen */
+    margin-bottom: 2rem; /* separación inferior respecto al contenido siguiente */
+    display: flex; /* usa flex para centrar contenido cuando no hay imagen */
+    align-items: center; /* centra verticalmente el contenido */
+    justify-content: center; /* centra horizontalmente el contenido */
+    font-size: 5rem; /* tamaño de fuente grande para iniciales si no hay imagen */
+    overflow: hidden; /* oculta el desbordamiento de la imagen dentro del contenedor */
+    object-fit: cover; /* propiedad innecesaria en div, suele usarse en img, no afecta aquí */
+}
+
+.detail-modal-image img {
+    width: 100%; /* la imagen ocupa el ancho completo del contenedor */
+    height: 100%; /* la imagen ocupa la altura completa del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.detail-info {
+    background-color: #f9f9f9; /* fondo gris muy claro para el bloque de información */
+    padding: 1.5rem; /* espacio interno del bloque de información */
+    border-radius: 15px; /* esquinas redondeadas del bloque de información */
+    margin-bottom: 1.5rem; /* separación inferior respecto al siguiente bloque */
+}
+
+.detail-info-row {
+    display: flex; /* coloca ícono y contenido en fila */
+    align-items: center; /* centra verticalmente ícono y contenido */
+    gap: 1rem; /* espacio entre ícono y contenido */
+    margin-bottom: 1rem; /* separación inferior entre filas de información */
+}
+
+.detail-info-row:last-child {
+    margin-bottom: 0; /* elimina el margen inferior en la última fila */
+}
+
+.detail-info-icon {
+    color: var(--moss-green); /* color verde musgo para el ícono */
+    font-size: 1.3rem; /* tamaño del ícono en las filas de información */
+    width: 30px; /* ancho fijo para alinear íconos en columna */
+    text-align: center; /* centra el ícono dentro de su ancho asignado */
+}
+
+.detail-info-content {
+    flex: 1; /* el contenido ocupa el espacio restante de la fila */
+}
+
+.detail-info-label {
+    font-size: 0.85rem; /* tamaño de la etiqueta del campo de información */
+    color: #999; /* color gris para la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la etiqueta */
+    margin-bottom: 0.2rem; /* pequeña separación bajo la etiqueta */
+}
+
+.detail-info-value {
+    color: var(--bee-black); /* color oscuro para el valor del campo */
+    font-weight: 600; /* seminegrita para destacar el valor */
+}
+

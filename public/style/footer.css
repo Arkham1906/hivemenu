@@ -1,0 +1,704 @@
+/* ========================================
+    FOOTER - PIE DE PÁGINA
+======================================== */
+footer {
+    background-color: var(--bee-black); /* color de fondo oscuro del footer */
+    color: var(--white); /* color de texto principal del footer */
+    padding: 3rem 2rem 1.5rem; /* espacio interno superior, lateral y inferior del footer */
+    margin-top: 4rem; /* separación superior respecto al contenido previo */
+}
+
+/* Contenedor principal del contenido del footer */
+.footer-content {
+    max-width: 1400px; /* ancho máximo del footer para limitar el contenido */
+    margin: 0 auto; /* centra el contenedor horizontalmente */
+    display: grid; /* usa grid para distribuir las secciones del footer */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* columnas adaptables con mínimo 250px por sección */
+    gap: 2rem; /* separación entre secciones del footer */
+    margin-bottom: 2rem; /* separación inferior respecto a la banda del footer-bottom */
+}
+
+/* Títulos de cada sección del footer */
+.footer-section h3 {
+    color: var(--honey-yellow); /* color amarillo para destacar los títulos */
+    margin-bottom: 1rem; /* separación inferior del título */
+    font-size: 1.3rem; /* tamaño de fuente del título en cada sección */
+}
+
+/* Párrafos dentro de las secciones del footer */
+.footer-section p {
+    margin-bottom: 0.5rem; /* separación inferior entre párrafos */
+    color: #ccc; /* color gris claro para el texto del párrafo */
+}
+
+/* Grupo de enlaces sociales */
+.social-links {
+    display: flex; /* usa flex para alinear los íconos en fila */
+    gap: 1rem; /* espacio entre cada enlace social */
+    margin-top: 1rem; /* separación superior respecto al texto previo */
+}
+
+/* Estilo de cada enlace social */
+.social-links a {
+    color: var(--white); /* color blanco para los íconos por defecto */
+    font-size: 1.5rem; /* tamaño del ícono dentro del enlace */
+    transition: all 0.3s ease; /* transición suave para hover */
+    display: flex; /* usa flex para centrar el ícono dentro del botón circular */
+    align-items: center; /* centra verticalmente el ícono */
+    justify-content: center; /* centra horizontalmente el ícono */
+    width: 40px; /* ancho del botón circular social */
+    height: 40px; /* alto del botón circular social */
+    background-color: rgba(255,255,255,0.1); /* fondo blanco translúcido para el botón */
+    border-radius: 50%; /* hace el botón social completamente circular */
+}
+
+/* Efecto hover en enlaces sociales */
+.social-links a:hover {
+    color: var(--honey-yellow); /* cambia el color del ícono a amarillo en hover */
+    background-color: rgba(255, 201, 60, 0.2); /* aclara el fondo del botón en hover */
+    transform: translateY(-3px); /* levanta ligeramente el botón para dar feedback */
+}
+
+/* Banda inferior del footer con borde y texto centrado */
+.footer-bottom {
+    text-align: center; /* centra el texto de la banda inferior */
+    padding-top: 2rem; /* separación superior interna en la banda inferior */
+    border-top: 1px solid rgba(255,255,255,0.1); /* línea superior sutil para separar contenido del footer */
+    color: #999; /* color gris para el texto de la banda inferior */
+}
+
+
+/* ========================================
+    SECCIÓN DE PERFIL
+======================================== */
+
+.perfil-section {
+    max-width: 1400px; /* ancho máximo del contenedor de la sección de perfil */
+    margin: 3rem auto; /* margen superior/inferior y centrado horizontal */
+    padding: 2rem; /* espacio interno de la sección */
+    display: none; /* oculto por defecto hasta activarse */
+}
+
+.perfil-section.active {
+    display: block; /* muestra la sección cuando tiene la clase active */
+}
+
+/* Encabezado del perfil con fondo degradado y estilo destacado */
+.perfil-header {
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* fondo degradado en diagonal usando variables de color */
+    border-radius: 20px; /* esquinas redondeadas del encabezado */
+    padding: 3rem 2rem; /* espacio interno amplio para el contenido del encabezado */
+    color: var(--white); /* texto en color blanco para contraste */
+    text-align: center; /* centra el contenido del encabezado */
+    margin-bottom: 3rem; /* separación inferior respecto al contenido siguiente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+}
+
+/* Avatar circular con iniciales del usuario */
+.perfil-avatar {
+    width: 120px; /* ancho del avatar */
+    height: 120px; /* alto del avatar */
+    border-radius: 50%; /* hace el avatar completamente circular */
+    margin: 0 auto 1rem; /* centra el avatar y añade margen inferior */
+    display: flex; /* usa flex para centrar el contenido interno */
+    align-items: center; /* centra verticalmente la inicial del avatar */
+    justify-content: center; /* centra horizontalmente la inicial del avatar */
+    font-size: 3rem; /* tamaño de la inicial dentro del avatar */
+    border: 4px solid rgba(255,255,255,0.3); /* borde blanco translúcido alrededor del avatar */
+}
+
+/* Nombre del usuario destacado */
+.perfil-name {
+    font-size: 2rem; /* tamaño de fuente del nombre del usuario */
+    margin-bottom: 0.5rem; /* espacio inferior bajo el nombre */
+    font-weight: 700; /* peso de fuente en negrita para destacar */
+}
+
+/* Biografía corta del usuario */
+.perfil-bio {
+    font-size: 1rem; /* tamaño de fuente de la bio */
+    opacity: 0.9; /* ligera transparencia para suavizar el texto */
+    max-width: 600px; /* ancho máximo de la bio para evitar líneas demasiado largas */
+    margin: 0 auto 1.5rem; /* centra la bio y añade margen inferior */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+/* Bloque de estadísticas del perfil */
+.perfil-stats {
+    display: flex; /* layout flexible para las estadísticas */
+    justify-content: center; /* centra las estadísticas horizontalmente */
+    gap: 3rem; /* espacio entre elementos de estadísticas */
+    margin-top: 2rem; /* separación superior respecto a la bio */
+    flex-wrap: wrap; /* permite que las estadísticas salten de línea en pantallas pequeñas */
+}
+
+.stat-item {
+    text-align: center; /* centra el contenido de cada estadística */
+}
+
+.stat-number {
+    font-size: 2rem; /* tamaño de fuente del número de estadísticas */
+    font-weight: 700; /* negrita para resaltar el número */
+    display: block; /* muestra el número como bloque para controlar el flujo vertical */
+}
+
+.stat-label {
+    font-size: 0.9rem; /* tamaño de fuente de la etiqueta de estadísticas */
+    opacity: 0.8; /* ligera transparencia para la etiqueta */
+}
+
+/* Acciones principales del perfil en el encabezado */
+.perfil-actions {
+    display: flex; /* layout flexible para los botones de acción */
+    gap: 1rem; /* espacio entre botones de acción */
+    justify-content: center; /* centra los botones horizontalmente */
+    flex-wrap: wrap; /* permite que los botones se ajusten en varias líneas si es necesario */
+}
+
+.btn-editar-perfil {
+    background-color: var(--white); /* fondo blanco para el botón editar */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    border: 2px solid rgba(255,255,255,0.3); /* borde blanco translúcido para integración con el header */
+}
+
+.btn-editar-perfil:hover {
+    background-color: rgba(255,255,255,0.9); /* aclara el fondo al hacer hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+}
+
+/* Contenido principal del perfil debajo del header */
+.perfil-content {
+    background-color: var(--white); /* fondo blanco para el bloque de contenido */
+    border-radius: 20px; /* esquinas redondeadas del bloque de contenido */
+    padding: 2rem; /* espacio interno del bloque de contenido */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para separar del fondo */
+}
+
+/* ========================================
+    Tabs internas del perfil
+======================================== */
+.perfil-tabs {
+    display: flex; /* coloca las pestañas en fila */
+    gap: 1rem; /* espacio entre pestañas */
+    margin-bottom: 2rem; /* espacio inferior bajo las pestañas */
+    border-bottom: 2px solid #eee; /* línea inferior para separar visualmente las pestañas del contenido */
+}
+
+.tab-btn {
+    padding: 1rem 2rem; /* espacio interno de cada pestaña */
+    background: none; /* sin fondo por defecto */
+    border: none; /* sin borde por defecto */
+    color: #666; /* color de texto gris por defecto */
+    font-size: 1rem; /* tamaño de fuente de cada pestaña */
+    font-weight: 600; /* seminegrita para mejor legibilidad */
+    cursor: pointer; /* cursor de mano para indicar que es interactiva */
+    transition: all 0.3s ease; /* transición suave para cambios de estado */
+    border-bottom: 3px solid transparent; /* línea inferior transparente por defecto para efecto de selección */
+}
+
+.tab-btn.active {
+    color: var(--honey-yellow); /* color amarillo miel al estar activa */
+    border-bottom-color: var(--honey-yellow); /* resalta la línea inferior al estar activa */
+}
+
+.tab-btn:hover {
+    color: var(--warm-gold); /* cambia a dorado cálido al pasar el cursor */
+}
+
+/* ========================================
+    Grid de mis publicaciones
+======================================== */
+.mis-publicaciones {
+    display: grid; /* usa grid para distribuir las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* crea columnas flexibles mínimo 300px, llenando el espacio disponible */
+    gap: 2rem; /* espacio entre tarjetas */
+}
+
+/* Acciones dentro de cada tarjeta de publicación */
+.card-actions {
+    display: flex; /* layout flexible para botones dentro de la tarjeta */
+    gap: 0.5rem; /* separación entre botones */
+    margin-top: 1rem; /* espacio superior respecto al contenido de la tarjeta */
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1; /* cada botón ocupa el mismo espacio disponible */
+    padding: 0.6rem; /* espacio interno del botón */
+    border: none; /* sin borde por defecto */
+    border-radius: 10px; /* esquinas redondeadas para los botones */
+    font-weight: 600; /* seminegrita para destacar el texto del botón */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave para hover y estados */
+    display: flex; /* alinea ícono y texto del botón con flex */
+    align-items: center; /* centra verticalmente el contenido del botón */
+    justify-content: center; /* centra horizontalmente el contenido del botón */
+    gap: 0.5rem; /* espacio entre ícono y texto del botón */
+}
+
+.btn-edit {
+    background-color: var(--moss-green); /* fondo verde musgo para el botón editar */
+    color: var(--white); /* texto en blanco para contraste */
+}
+
+.btn-edit:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+.btn-delete {
+    background-color: #e74c3c; /* rojo para indicar acción peligrosa o de eliminación */
+    color: var(--white); /* texto en blanco para contraste */
+}
+
+.btn-delete:hover {
+    background-color: #c0392b; /* rojo más oscuro en hover para feedback visual */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+/* Estado vacío cuando no hay publicaciones */
+.empty-state {
+    text-align: center; /* centra el contenido del estado vacío */
+    padding: 4rem 2rem; /* espacio interno amplio para aire visual */
+    color: #999; /* color gris para el texto del estado vacío */
+}
+
+.empty-state i {
+    font-size: 4rem; /* tamaño grande para el ícono de estado vacío */
+    margin-bottom: 1rem; /* espacio inferior bajo el ícono */
+    color: #ddd; /* color gris claro para el ícono */
+}
+
+.empty-state h3 {
+    color: #666; /* color gris para el título del estado vacío */
+    margin-bottom: 0.5rem; /* espacio inferior bajo el título */
+}
+
+/* ========================================
+    Acciones del perfil en el header
+======================================== */
+.perfil-actions {
+    display: flex; /* layout flexible para las acciones del perfil */
+    gap: 1rem; /* espacio entre botones de acción */
+    justify-content: center; /* centra los botones de acción */
+    margin-top: 2rem; /* separación superior respecto a estadísticas */
+}
+
+.btn-perfil {
+    padding: 0.8rem 2rem; /* espacio interno del botón de perfil */
+    border: none; /* sin borde por defecto */
+    border-radius: 25px; /* esquinas redondeadas tipo píldora */
+    font-weight: 600; /* seminegrita para el texto del botón */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    transition: all 0.3s ease; /* transición suave para hover */
+    display: flex; /* alinea ícono y texto del botón con flex */
+    align-items: center; /* centra verticalmente el contenido del botón */
+    gap: 0.5rem; /* espacio entre ícono y texto del botón */
+    font-size: 1rem; /* tamaño de fuente del botón */
+}
+
+.btn-editar-perfil {
+    background-color: var(--white); /* fondo blanco para el botón de editar perfil */
+    color: var(--bee-black); /* texto oscuro para buena legibilidad */
+    border: 2px solid rgba(255,255,255,0.3); /* borde translúcido para integrarse con el header */
+}
+
+.btn-editar-perfil:hover {
+    background-color: rgba(255,255,255,0.9); /* aclara el fondo en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+.btn-cerrar-sesion {
+    background-color: transparent; /* fondo transparente para el botón de cerrar sesión */
+    color: var(--white); /* texto blanco para contraste sobre el header */
+    border: 2px solid var(--white); /* borde blanco para delimitar el botón */
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: rgba(255,255,255,0.1); /* añade leve fondo blanco translúcido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón al pasar el cursor */
+}
+
+
+/* ========================================
+    LOGIN Y REGISTRO
+======================================== */
+.auth-container {
+    display: none; /* El contenedor de autenticación está oculto por defecto */
+    position: fixed; /* Se posiciona fijo para cubrir toda la ventana */
+    top: 0; /* Se ubica desde la parte superior */
+    left: 0; /* Se ubica desde la parte izquierda */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa todo el alto de la ventana */
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* Fondo con degradado diagonal usando variables de color */
+    z-index: 3000; /* Se asegura de quedar por encima de otros elementos */
+    justify-content: center; /* Centra horizontalmente el contenido interno cuando esté visible */
+    align-items: center; /* Centra verticalmente el contenido interno cuando esté visible */
+    padding: 2rem; /* Añade espacio interno alrededor del contenido */
+}
+
+.auth-container.active {
+    display: flex; /* Muestra el contenedor y activa el centrado con flex */
+}
+
+/* Caja principal del módulo de autenticación */
+.auth-box {
+    background-color: var(--white); /* Fondo blanco para la caja */
+    padding: 3rem; /* Espaciado interno amplio para contenido */
+    border-radius: 30px; /* Bordes redondeados para un estilo suave */
+    max-width: 450px; /* Limita el ancho máximo de la caja */
+    width: 100%; /* Permite que la caja sea responsiva y ocupe el ancho disponible */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Sombra profunda para destacar sobre el fondo */
+    position: relative; /* Contexto de posicionamiento para elementos internos */
+    animation: slideUp 0.4s ease; /* Animación de entrada hacia arriba al aparecer */
+}
+
+/* Encabezado con logo y textos */
+.auth-logo {
+    text-align: center; /* Centra el contenido del logo */
+    margin-bottom: 2rem; /* Espacio inferior para separar del contenido siguiente */
+}
+
+.auth-logo i {
+    font-size: 4rem; /* Tamaño grande para el ícono */
+    color: var(--honey-yellow); /* Color amarillo miel para el ícono */
+}
+
+.auth-logo h2 {
+    color: var(--bee-black); /* Color negro abeja para el título */
+    font-size: 2.5rem; /* Tamaño de fuente del título del módulo */
+    margin-top: 0.5rem; /* Espacio superior para separar del ícono */
+}
+
+.auth-logo p {
+    color: #666; /* Color gris para el subtítulo */
+    font-size: 1rem; /* Tamaño de fuente estándar para el subtítulo */
+}
+
+/* ========================================
+   Tabs de autenticación
+======================================== */
+.auth-tabs {
+    display: flex; /* Usa flex para colocar las pestañas en fila */
+    gap: 1rem; /* Espacio entre cada pestaña */
+    margin-bottom: 2rem; /* Separación debajo del grupo de pestañas */
+    background-color: #f5f5f5; /* Fondo gris claro para el contenedor de pestañas */
+    padding: 0.5rem; /* Espaciado interno del contenedor de pestañas */
+    border-radius: 15px; /* Bordes redondeados del contenedor de pestañas */
+}
+
+.auth-tab {
+    flex: 1; /* Cada pestaña ocupa el mismo ancho disponible */
+    padding: 0.8rem; /* Espaciado interno de la pestaña */
+    background: none; /* Fondo transparente por defecto en la pestaña */
+    border: none; /* Sin borde por defecto */
+    border-radius: 10px; /* Bordes redondeados en cada pestaña */
+    font-weight: 600; /* Fuente seminegrita para mejor legibilidad */
+    cursor: pointer; /* Muestra cursor de mano para indicar que es clicable */
+    transition: all 0.3s ease; /* Transición suave en estados hover/active */
+    color: #666; /* Color de texto gris por defecto en pestañas */
+}
+
+.auth-tab.active {
+    background-color: var(--honey-yellow); /* Fondo amarillo cuando la pestaña está activa */
+    color: var(--bee-black); /* Texto negro para contraste en la pestaña activa */
+}
+
+/* ========================================
+   Formularios de autenticación
+======================================== */
+.auth-form {
+    display: none; /* Los formularios están ocultos por defecto */
+}
+
+.auth-form.active {
+    display: block; /* Muestra el formulario activo */
+    animation: fadeIn 0.3s ease; /* Animación de aparción suave para el formulario */
+}
+
+/* Grupo de campos de formulario */
+.input-group {
+    margin-bottom: 1.5rem; /* Separación inferior entre grupos de inputs */
+}
+
+.input-group label {
+    display: block; /* La etiqueta ocupa toda la línea sobre el input */
+    margin-bottom: 0.5rem; /* Espacio entre la etiqueta y el input */
+    color: var(--bee-black); /* Color negro abeja para la etiqueta */
+    font-weight: 600; /* Seminegrita para resaltar la etiqueta */
+    font-size: 0.9rem; /* Tamaño moderado de la etiqueta */
+}
+
+/* Contenedor del input con ícono */
+.input-wrapper {
+    position: relative; /* Permite posicionar el ícono dentro del input */
+}
+
+.input-wrapper i {
+    position: absolute; /* Posiciona el ícono de forma absoluta respecto al wrapper */
+    left: 1rem; /* Ubica el ícono a la izquierda dentro del input */
+    top: 50%; /* Centra verticalmente el ícono respecto al input */
+    transform: translateY(-50%); /* Ajusta el centrado vertical del ícono */
+    color: #999; /* Color gris para el ícono del input */
+}
+
+.input-group input {
+    width: 100%; /* El input ocupa todo el ancho disponible */
+    padding: 1rem 1rem 1rem 3rem; /* Añade padding con espacio extra a la izquierda para el ícono */
+    border: 2px solid #e0e0e0; /* Borde gris claro alrededor del input */
+    border-radius: 12px; /* Bordes redondeados para el input */
+    font-size: 1rem; /* Tamaño estándar del texto del input */
+    transition: all 0.3s ease; /* Transición suave en foco o interacción */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna para el input */
+}
+
+.input-group input:focus {
+    outline: none; /* Quita el contorno azul por defecto del navegador */
+    border-color: var(--honey-yellow); /* Cambia el color del borde al amarillo miel en foco */
+    box-shadow: 0 0 0 3px rgba(255, 201, 60, 0.1); /* Sombra suave amarilla para indicar foco */
+}
+
+/* Botón principal de autenticación */
+.auth-btn {
+    width: 100%; /* El botón ocupa todo el ancho del formulario */
+    padding: 1rem; /* Espaciado interno del botón */
+    background-color: var(--honey-yellow); /* Fondo amarillo miel del botón */
+    color: var(--bee-black); /* Texto negro para contraste con el fondo */
+    border: none; /* El botón no tiene borde visible */
+    border-radius: 12px; /* Bordes redondeados del botón */
+    font-size: 1.1rem; /* Tamaño ligeramente mayor para el texto del botón */
+    font-weight: 700; /* Texto en negrita para el botón */
+    cursor: pointer; /* Cursor de mano para indicar clic */
+    transition: all 0.3s ease; /* Transición suave en hover */
+    display: flex; /* Flex para alinear ícono y texto del botón */
+    align-items: center; /* Centra verticalmente el contenido del botón */
+    justify-content: center; /* Centra horizontalmente el contenido del botón */
+    gap: 0.5rem; /* Espacio entre el ícono y el texto del botón */
+}
+
+.auth-btn:hover {
+    background-color: var(--warm-gold); /* Cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* Levanta ligeramente el botón al pasar el cursor */
+    box-shadow: 0 6px 20px rgba(232, 163, 23, 0.4); /* Sombra más pronunciada en hover */
+}
+
+/* Pie del formulario con enlaces de cambio de tab */
+.auth-footer {
+    text-align: center; /* Centra el contenido del pie del formulario */
+    margin-top: 1.5rem; /* Separación superior respecto al botón del formulario */
+    color: #666; /* Color gris para el texto del pie */
+    font-size: 0.9rem; /* Tamaño de texto del pie del formulario */
+}
+
+/* ========================================
+    Mensajes de estado: error y éxito
+======================================== */
+.error-message {
+    background-color: #ffe6e6; /* Fondo rosado claro para indicar error */
+    color: #c0392b; /* Texto rojo para el mensaje de error */
+    padding: 0.8rem; /* Espaciado interno del mensaje de error */
+    border-radius: 8px; /* Bordes redondeados del mensaje de error */
+    margin-bottom: 1rem; /* Separación inferior respecto a otros elementos */
+    font-size: 0.9rem; /* Tamaño de texto del mensaje de error */
+    display: none; /* Oculto por defecto hasta que se muestre */
+    align-items: center; /* Centra verticalmente ícono y texto cuando esté visible */
+    gap: 0.5rem; /* Espacio entre ícono y texto del mensaje */
+}
+
+.error-message.show {
+    display: flex; /* Muestra el mensaje de error con layout flexible */
+}
+
+.success-message {
+    background-color: #e6f7e6; /* Fondo verde claro para indicar éxito */
+    color: #27ae60; /* Texto verde para el mensaje de éxito */
+    padding: 0.8rem; /* Espaciado interno del mensaje de éxito */
+    border-radius: 8px; /* Bordes redondeados del mensaje de éxito */
+    margin-bottom: 1rem; /* Separación inferior respecto a otros elementos */
+    font-size: 0.9rem; /* Tamaño de texto del mensaje de éxito */
+    display: none; /* Oculto por defecto hasta que se muestre */
+    align-items: center; /* Centra verticalmente ícono y texto cuando esté visible */
+    gap: 0.5rem; /* Espacio entre ícono y texto del mensaje */
+}
+
+.success-message.show {
+    display: flex; /* Muestra el mensaje de éxito con layout flexible */
+}
+
+/* ========================================
+    Menú de usuario en el header
+======================================== */
+
+.user-menu {
+    display: none; /* Oculto por defecto hasta que el usuario esté autenticado */
+    align-items: center; /* Alinea verticalmente los elementos del menú de usuario */
+    gap: 1rem; /* Espacio entre elementos del menú de usuario */
+    color: var(--white); /* Color blanco para el texto del menú de usuario */
+}
+
+.user-menu.active {
+    display: flex; /* Muestra el menú de usuario cuando está activo */
+}
+
+.user-name {
+    font-weight: 600; /* Aplica seminegrita al nombre del usuario para destacarlo */
+}
+
+/* ========================================
+    RESPONSIVE - MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú móvil en pantallas pequeñas */
+    }
+
+    nav ul {
+        position: fixed; /* Fija el menú para que pueda deslizar desde el borde */
+        top: 70px; /* Posiciona el menú debajo del header */
+        left: -100%; /* Oculta el menú fuera de la pantalla inicialmente */
+        background-color: var(--bee-black); /* Fondo negro abeja para el menú móvil */
+        width: 100%; /* El menú ocupa todo el ancho de la pantalla en móvil */
+        flex-direction: column; /* Coloca los elementos del menú en columna */
+        padding: 2rem; /* Espaciado interno del menú móvil */
+        transition: left 0.3s ease; /* Animación suave para el deslizamiento del menú */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para separar visualmente el menú */
+    }
+
+    nav ul.active {
+        left: 0; /* Muestra el menú deslizando desde el borde izquierdo */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Reduce el tamaño del título principal en móvil */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajusta el tamaño del texto descriptivo en móvil */
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr; /* Las tarjetas se muestran en una sola columna en móvil */
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem; /* Reduce el tamaño del título de sección en móvil */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* El footer se muestra en una sola columna para móvil */
+        text-align: center; /* Centra el contenido del footer en móvil */
+    }
+
+    .social-links {
+        justify-content: center; /* Centra los íconos de redes sociales en móvil */
+    }
+}
+
+/* ========================================
+   BARRA DE BÚSQUEDA MEJORADA - TEMA HIVEMENU
+======================================== */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#searchType {
+    padding: 1rem 2.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 25px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    cursor: pointer;
+    min-width: 180px;
+    font-weight: 600;
+    color: var(--bee-black);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%237B904B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+#searchType:hover {
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    transform: translateY(-2px);
+}
+
+#searchType:focus {
+    border-color: var(--warm-gold);
+    box-shadow: 0 0 0 3px rgba(232, 163, 23, 0.15);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    transition: all 0.3s ease;
+    color: var(--bee-black);
+}
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    background: var(--white);
+}
+
+.search-bar > i {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--moss-green);
+    font-size: 1.3rem;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+#searchInput:focus ~ i {
+    color: var(--honey-yellow);
+}
+
+/* Animación de búsqueda */
+@keyframes searchPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+.search-bar.searching > i {
+    animation: searchPulse 1s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #searchType {
+        width: 100%;
+    }
+    
+    .search-bar > i {
+        right: 2rem;
+    }
+}

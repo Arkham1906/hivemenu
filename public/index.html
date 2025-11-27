@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiveMenu - Emprendimientos UPEN</title>
+
+    <!--LINKS CSS-->
+    <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="/style/banner.css">
+    <link rel="stylesheet" href="/style/hero-emprendimientos.css">
+    <link rel="stylesheet" href="/style/modalCreation.css">
+    <link rel="stylesheet" href="/style/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ========================================
+    PANTALLA DE LOGIN/REGISTRO
+======================================== -->
+
+<div class="auth-container active" id="authContainer">
+        <!-- Contenedor principal de la pantalla de autenticación, inicia visible con la clase active -->
+
+        <div class="auth-box">
+            <!-- Caja que agrupa logo, mensajes y formularios -->
+
+            <div class="auth-logo">
+                <!-- Logo y texto de bienvenida -->
+                <i class="fas fa-honeycomb"></i>
+                <!-- Ícono decorativo -->
+                <h2>HiveMenu</h2>
+                <!-- Nombre de la plataforma -->
+                <p>Únete a nuestra colmena de emprendedores</p>
+                <!-- Texto motivacional -->
+            </div>
+
+            <!-- Mensajes de error/éxito -->
+            <div class="error-message" id="errorMessage">
+                <!-- Contenedor de mensajes de error -->
+                <i class="fas fa-exclamation-circle"></i>
+                <!-- Ícono de advertencia -->
+                <span id="errorText"></span>
+                <!-- Mensaje de error -->
+            </div>
+            <div class="success-message" id="successMessage">
+                <!-- Contenedor de mensajes de éxito -->
+                <i class="fas fa-check-circle"></i>
+                <!-- Ícono de confirmación -->
+                <span id="successText"></span>
+                <!-- Mensaje de éxito -->
+            </div>
+
+        <!-- Tabs -->
+            <div class="auth-tabs">
+                <!-- Botones para alternar entre login y registro -->
+                <button class="auth-tab active" id="loginTab">Iniciar Sesión</button>
+                <!-- Pestaña activa por defecto: login -->
+                <button class="auth-tab" id="signupTab">Registrarse</button>
+                <!-- Pestaña para registro -->
+            </div>
+
+        <!-- Formulario de Login -->
+            <form class="auth-form active" id="loginForm">
+                <!-- Formulario de inicio de sesión, activo por defecto -->
+                <div class="input-group">
+                    <label for="loginEmail">Correo Electrónico</label>
+                    <!-- Etiqueta del campo email -->
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <!-- Ícono de email -->
+                        <input type="email" id="loginEmail" placeholder="tu@correo.com" required>
+                        <!-- Campo de email obligatorio -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <!-- Etiqueta del campo contraseña -->
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <!-- Ícono de candado -->
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        <!-- Campo de contraseña obligatorio -->
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <!-- Botón para enviar login -->
+                    <i class="fas fa-sign-in-alt"></i>
+                    Iniciar Sesión
+                </button>
+                <div class="auth-footer">
+                    <!-- Pie del formulario con enlace a registro -->
+                    ¿No tienes cuenta? 
+                    <a href="#" id="switchToSignup" style="color: var(--warm-gold); font-weight: 600;">Regístrate aquí</a>
+                </div>
+            </form>
+
+        <!-- Formulario de Registro -->
+            <form class="auth-form" id="signupForm">
+                <!-- Formulario de registro, oculto por defecto -->
+                <div class="input-group">
+                    <label for="signupName">Usuario </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signupName" placeholder="Glowfruit" required>
+                        <!-- Campo de nombre de usuario obligatorio -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="signupEmail">Correo Electrónico</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signupEmail" placeholder="tu@correo.com" required>
+                        <!-- Campo de email obligatorio -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="signupPassword">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupPassword" placeholder="Mínimo 6 caracteres" required minlength="6">
+                        <!-- Campo de contraseña con validación mínima -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="signupConfirmPassword">Confirmar Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupConfirmPassword" placeholder="Repite tu contraseña" required>
+                        <!-- Campo para confirmar contraseña -->
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <!-- Botón para enviar registro -->
+                    <i class="fas fa-user-plus"></i>
+                    Crear Cuenta
+                </button>
+                <div class="auth-footer">
+                    <!-- Pie del formulario con enlace a login -->
+                    ¿Ya tienes cuenta? 
+                    <a href="#" id="switchToLogin" style="color: var(--warm-gold); font-weight: 600;">Inicia sesión</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!-- ========================================
+    HEADER - ENCABEZADO
+======================================== -->
+
+    <header>
+        <div class="header-container">
+            <!-- Contenedor principal del encabezado -->
+
+            <div class="logo-box">
+                <!-- Caja con logo -->
+                <img src="/image/logo.png" class="imagelg">
+                <!-- Imagen del logo -->
+                <a href="#" class="logo">
+                    <i class="fas fa-honeycomb"></i>
+                    <!-- Ícono decorativo -->
+                    <span>HiveMenu</span>
+                    <!-- Texto del logo -->
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <!-- Botón para abrir/cerrar menú móvil -->
+                <i class="fas fa-bars"></i>
+                <!-- Ícono de menú -->
+            </button>
+
+            <nav>
+                <!-- Barra de navegación -->
+                <ul id="navMenu">
+                    <li><a href="#inicio" class="nav-link"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <!-- Enlace a inicio -->
+                    <li><a href="#emprendimientos" class="nav-link"><i class="fas fa-search"></i><span>Buscar</span></a></li>
+                    <!-- Enlace a sección de búsqueda -->
+                    <li><a href="#" class="btn-create" id="openModal"><i class="fas fa-plus"></i> Crear</a></li>
+                    <!-- Botón para abrir modal de creación -->
+                    <li><a href="#perfil" class="nav-link" id="perfilLink"><i class="fas fa-user"></i><span>Perfil</span></a></li>
+                    <!-- Enlace a perfil -->
+
+                    <!-- Menú de usuario -->
+                    <li class="user-menu" id="userMenu">
+                        <span class="user-name" id="userName">Usuario</span>
+                        <!-- Nombre del usuario autenticado -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- ========================================
+    BANNER PRINCIPAL
+======================================== -->
+
+    <section class="hero" id="inicio">
+    <!-- Sección principal tipo banner -->
+        <div class="hero-content">
+            <!-- Contenido del banner -->
+            <h1>Descubre Emprendimientos UPEN</h1>
+            <!-- Título principal -->
+            <p>Conecta, explora y apoya los proyectos más innovadores de nuestra comunidad universitaria</p>
+            <!-- Texto descriptivo -->
+            <div class="hero-buttons">
+                <!-- Botones de acción -->
+                <a href="#emprendimientos" class="btn btn-primary">Explorar ahora</a>
+                <!-- Botón principal para explorar -->
+                <a href="#" class="btn btn-secondary">Saber más</a>
+                <!-- Botón secundario -->
+            </div>
+        </div>
+    </section>
+
+
+<!-- ========================================
+    SECCIÓN DE EMPRENDIMIENTOS
+======================================== -->
+
+    <section class="emprendimientos" id="emprendimientos">
+        <!-- Sección principal que agrupa las tarjetas de emprendimientos -->
+
+        <div class="section-header">
+            <!-- Encabezado de la sección con título y descripción -->
+            <h2>Emprendimientos Destacados</h2>
+            <!-- Título visible de la sección -->
+            <p>Conoce los emprendimientos más creativos de nuestra colmena</p>
+            <!-- Descripción breve bajo el título -->
+        </div>
+
+        <div class="search-bar">
+            <!-- Contenedor de la barra de búsqueda -->
+            <input type="text" id="searchInput" placeholder="Buscar emprendimientos...">
+            <!-- Campo de texto para buscar por nombre, categoría o descripción -->
+            <i class="fas fa-search"></i>
+            <!-- Ícono decorativo de búsqueda -->
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Contenedor tipo grid donde se insertarán las tarjetas generadas por JavaScript -->
+            <!-- Las tarjetas se generaran con JavaScript -->
+        </div>
+    </section>
+
+<!-- ========================================
+    SECCIÓN DE PERFIL
+======================================== -->
+
+    <section class="perfil-section" id="perfilSection">
+        <!-- Sección dedicada al perfil del usuario autenticado -->
+
+        <div class="perfil-header">
+            <!-- Encabezado del perfil con avatar, nombre, email y acciones -->
+            <div class="perfil-avatar" id="perfilAvatar">A</div>
+            <!-- Avatar como texto con iniciales del usuario -->
+            <h1 class="perfil-name" id="perfilName">Estudiante UPEN</h1>
+            <!-- Nombre completo del usuario -->
+            <p class="perfil-email" id="perfilEmail">correo@ejemplo.com</p>
+            <!-- Correo electrónico del usuario -->
+            <p class="perfil-bio" id="perfilBio">Sin descripción</p>
+            <!-- Biografía o descripción del usuario -->
+
+            <div class="perfil-stats">
+                <!-- Contenedor de estadísticas del perfil -->
+                <div class="stat-item">
+                    <!-- Elemento individual de estadística -->
+                    <span class="stat-number" id="totalPublicaciones">0</span>
+                    <!-- Número de publicaciones del usuario -->
+                    <span class="stat-label">Publicaciones</span>
+                    <!-- Etiqueta de la estadística mostrada -->
+                </div>
+            </div>
+
+            <div class="perfil-actions">
+                <!-- Contenedor de botones de acción del perfil -->
+                <button class="btn-perfil btn-editar-perfil" id="btnEditarPerfil">
+                    <!-- Botón para abrir el modal de edición de perfil -->
+                    <i class="fas fa-edit"></i> Editar Perfil
+                    <!-- Ícono y texto del botón -->
+                </button>
+                <button class="btn-perfil btn-cerrar-sesion" id="btnCerrarSesion">
+                    <!-- Botón para cerrar sesión del usuario -->
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    <!-- Ícono y texto del botón -->
+                </button>
+            </div>
+        </div>
+
+        <div class="perfil-content">
+            <!-- Contenido principal del perfil, debajo del encabezado -->
+            <h3 style="margin-bottom: 2rem; color: var(--bee-black);">Mis Publicaciones</h3>
+            <!-- Subtítulo para la lista de publicaciones del usuario -->
+            <div class="mis-publicaciones" id="misPublicaciones"></div>
+            <!-- Contenedor donde se renderizan las tarjetas propias del usuario -->
+        </div>
+    </section>
+
+<!-- ========================================
+    MODAL DE CREACIÓN/EDICIÓN
+======================================== -->
+
+    <div class="modal" id="createModal">
+        <!-- Modal para crear o editar un emprendimiento -->
+        <div class="modal-content">
+            <!-- Contenido interno del modal -->
+            <button class="modal-close" id="closeModal">
+                <!-- Botón para cerrar el modal de creación/edición -->
+                <i class="fas fa-times"></i>
+                <!-- Ícono de cierre -->
+            </button>
+            <h2 id="modalTitle">Crear Publicación</h2>
+            <!-- Título del modal, cambia según modo creación o edición -->
+            <form id="createForm">
+                <!-- Formulario de creación/edición de emprendimiento -->
+                <input type="hidden" id="editId">
+                <!-- Campo oculto para almacenar el id en modo edición -->
+
+                <div class="form-group">
+                    <!-- Grupo de formulario para la imagen -->
+                    <label for="imagen">Imágen</label>
+                    <!-- Etiqueta del input de imagen -->
+                    <input type="file" id="imagen" accept="image/*">
+                    <!-- Input para seleccionar una imagen del dispositivo -->
+                    <div class="image-preview" id="imagePreview">
+                        <!-- Contenedor para mostrar vista previa de la imagen seleccionada -->
+                        <img id="previewImg" src="" alt="Vista previa">
+                        <!-- Imagen de vista previa, se actualiza por JavaScript -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de formulario para el nombre -->
+                    <label for="nombre">Nombre de la Publicación</label>
+                    <!-- Etiqueta del campo de nombre -->
+                    <input type="text" id="nombre" required>
+                    <!-- Campo de texto para el nombre, requerido -->
+                </div>
+
+                <div class="form-group">
+                <!-- Grupo de formulario para la categoría -->
+                    <label for="categoria">Categoría</label>
+                    <!-- Etiqueta del campo de categoría -->
+                    <select id="categoria" required>
+                        <!-- Selección de categoría, requerido -->
+                        <option value="">Seleccione una categoría</option>
+                        <!-- Opción vacía como placeholder -->
+                        <option value="Alimentos">Alimentos</option>
+                        <!-- Opción de categoría Alimentos -->
+                        <option value="Bebidas">Bebidas</option>
+                        <!-- Opción de categoría Bebidas -->
+                        <option value="Snacks">Snacks</option>
+                        <!-- Opción de categoría Snacks -->
+                        <option value="Servicios">Servicios</option>
+                        <!-- Opción de categoría Servicios -->
+                        <option value="Misceláneos">Misceláneos</option>
+                        <!-- Opción de categoría Misceláneos -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de formulario para la descripción -->
+                    <label for="descripcion">Descripción</label>
+                    <!-- Etiqueta del campo de descripción -->
+                    <textarea id="descripcion" required></textarea>
+                    <!-- Área de texto para la descripción, requerida -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de formulario para el teléfono -->
+                    <label for="telefono">Número de Teléfono</label>
+                    <!-- Etiqueta del campo de teléfono -->
+                    <input type="tel" id="telefono" placeholder="3112345678" required>
+                    <!-- Campo de teléfono con placeholder -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de formulario para la ubicación -->
+                    <label for="ubicacion">Ubicación en Campus</label>
+                    <!-- Etiqueta del campo de ubicación -->
+                    <input type="text" id="ubicacion" placeholder="Ej: Laboratorios, Salón, ...">
+                    <!-- Campo de texto para la ubicación con ejemplo -->
+                </div>
+
+                <button type="submit" class="modal-btn" id="submitBtn">
+                    <!-- Botón para enviar el formulario de creación/edición -->
+                    <i class="fas fa-paper-plane"></i> Publicar
+                    <!-- Ícono y texto del botón de enviar -->
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="detailModal">
+        <!-- Modal para ver el detalle de un emprendimiento -->
+        <div class="modal-content">
+            <!-- Contenido interno del modal de detalle -->
+            <button class="modal-close" id="closeDetailModal">
+                <!-- Botón para cerrar el modal de detalle -->
+                <i class="fas fa-times"></i>
+                <!-- Ícono de cierre -->
+            </button>
+            <div class="detail-modal-image" id="detailImage"></div>
+            <!-- Contenedor donde se inserta la imagen por JavaScript -->
+            <h2 id="detailName">Nombre de publicación</h2>
+            <!-- Título del modal con el nombre de la Públicación -->
+
+            <div class="detail-info">
+            <!-- Contenedor de información estructurada del emprendimiento -->
+                <div class="detail-info-row">
+                    <!-- Fila para mostrar la categoría -->
+                    <div class="detail-info-icon"><i class="fas fa-tag"></i></div>
+                    <!-- Ícono de etiqueta para categoría -->
+                    <div class="detail-info-content">
+                        <!-- Contenido con etiqueta y valor -->
+                        <div class="detail-info-label">Categoría</div>
+                        <!-- Etiqueta del campo de categoría -->
+                        <div class="detail-info-value" id="detailCategoria">-</div>
+                        <!-- Valor dinámico de categoría -->
+                    </div>
+                </div>
+                <div class="detail-info-row">
+                    <!-- Fila para mostrar el emprendedor -->
+                    <div class="detail-info-icon"><i class="fas fa-user"></i></div>
+                    <!-- Ícono de usuario para emprendedor -->
+                    <div class="detail-info-content">
+                        <!-- Contenido con etiqueta y valor -->
+                        <div class="detail-info-label">Emprendedor</div>
+                        <!-- Etiqueta del campo emprendedor -->
+                        <div class="detail-info-value" id="detailEmprendedor">-</div>
+                        <!-- Valor dinámico del emprendedor -->
+                    </div>
+                </div>
+                <div class="detail-info-row">
+                    <!-- Fila para mostrar el teléfono -->
+                    <div class="detail-info-icon"><i class="fas fa-phone"></i></div>
+                    <!-- Ícono de teléfono para contacto -->
+                    <div class="detail-info-content">
+                        <!-- Contenido con etiqueta y valor -->
+                        <div class="detail-info-label">Teléfono</div>
+                        <!-- Etiqueta del campo teléfono -->
+                        <div class="detail-info-value" id="detailTelefono">-</div>
+                        <!-- Valor dinámico del teléfono -->
+                    </div>
+                </div>
+                <div class="detail-info-row">
+                    <!-- Fila para mostrar la ubicación -->
+                    <div class="detail-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <!-- Ícono de ubicación para dirección -->
+                    <div class="detail-info-content">
+                        <!-- Contenido con etiqueta y valor -->
+                        <div class="detail-info-label">Ubicación</div>
+                        <!-- Etiqueta del campo ubicación -->
+                        <div class="detail-info-value" id="detailUbicacion">-</div>
+                        <!-- Valor dinámico de la ubicación -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- Bloque para la descripción completa del emprendimiento -->
+                <label>Descripción Completa</label>
+                <!-- Etiqueta de la sección de descripción -->
+                <p id="detailDescripcion" style="color: #666; line-height: 1.8; margin: 0;"></p>
+                <!-- Párrafo donde se inserta por JavaScript la descripción completa del emprendimiento -->
+            </div>
+        </div>
+    </div>
+
+<!-- ========================================
+    MODAL EDITAR PERFIL
+======================================== -->
+
+    <div class="modal" id="editPerfilModal">
+        <!-- Modal para editar la información del perfil -->
+        <div class="modal-content">
+            <!-- Contenido interno del modal de edición de perfil -->
+            <button class="modal-close" id="closePerfilModal">
+                <!-- Botón para cerrar el modal de edición -->
+                <i class="fas fa-times"></i>
+                <!-- Ícono de cierre -->
+            </button>
+            <h2>Editar Perfil</h2>
+            <!-- Título del modal de edición de perfil -->
+            <form id="editPerfilForm">
+                <!-- Formulario para editar nombre, email y bio -->
+                <div class="form-group">
+                    <!-- Grupo para el nombre de usuario -->
+                    <label for="editNombre">Usuario</label>
+                    <!-- Etiqueta del campo de nombre -->
+                    <input type="text" id="editNombre" required>
+                    <!-- Campo de texto para el nombre de usuario, requerido -->
+                </div>
+                <div class="form-group">
+                    <!-- Grupo para el correo electrónico -->
+                    <label for="editEmail">Correo Electrónico</label>
+                    <!-- Etiqueta del campo de email -->
+                    <input type="email" id="editEmail" required>
+                    <!-- Campo de email para el usuario, requerido -->
+                </div>
+                <div class="form-group">
+                    <!-- Grupo para la biografía del usuario -->
+                    <label for="editBio">Descripción (Bio)</label>
+                    <!-- Etiqueta del campo de biografía -->
+                    <textarea id="editBio" placeholder="Cuéntanos sobre ti..." style="min-height: 120px;"></textarea>
+                    <!-- Área de texto para la biografía con altura mínima -->
+                </div>
+                <button type="submit" class="modal-btn">
+                    <!-- Botón para enviar el formulario de edición de perfil -->
+                    <i class="fas fa-save"></i> Guardar Cambios
+                    <!-- Ícono y texto del botón de guardar -->
+                </button>
+            </form>
+        </div>
+    </div>
+
+<!-- ========================================
+    FOOTER - PIE DE PÁGINA
+======================================== -->
+<footer>
+    <!-- Pie de página de la web -->
+    <div class="footer-content">
+        <!-- Contenedor principal del contenido del footer -->
+        <div class="footer-section">
+            <!-- Primera columna del footer con información de la plataforma -->
+            <h3>HiveMenu</h3>
+            <!-- Título de la sección -->
+            <p>Plataforma digital que conecta emprendedores universitarios con la comunidad UPEN.</p>
+            <!-- Descripción de la plataforma -->
+            <p>Organizamos, damos visibilidad y facilitamos el crecimiento de proyectos estudiantiles.</p>
+            <!-- Mensaje adicional sobre objetivos de la plataforma -->
+        </div>
+        
+        <div class="footer-section">
+            <!-- Segunda columna del footer con enlaces rápidos -->
+            <h3>Enlaces Rápidos</h3>
+            <!-- Título de la sección de enlaces -->
+            <p><a href="#inicio" style="color: #ccc; text-decoration: none;">Inicio</a></p>
+            <!-- Enlace a la sección de inicio -->
+            <p><a href="#emprendimientos" style="color: #ccc; text-decoration: none;">Emprendimientos</a></p>
+            <!-- Enlace a la sección de emprendimientos -->
+            <p><a href="#" style="color: #ccc; text-decoration: none;">Acerca de</a></p>
+            <!-- Enlace de información acerca de la plataforma -->
+            <p><a href="#" style="color: #ccc; text-decoration: none;">Contacto</a></p>
+            <!-- Enlace de contacto -->
+        </div>
+        
+    <div class="footer-section">
+    <!-- Tercera columna del footer con redes sociales -->
+        <h3>Síguenos</h3>
+        <p>Conéctate con nuestra comunidad</p>
+        <div class="social-links">
+            <!-- Enlace a Instagram -->
+            <a href="https://www.instagram.com/glow_fruit/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!-- Enlace a Facebook -->
+            <a href="https://www.facebook.com/share/1TwomJ1ZBX/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <!-- Enlace a Twitter -->
+            <a href="https://twitter.com/tuusuario" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        <!-- Enlace para correo -->
+            <a href="mailto:correo@ejemplo.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <!-- Banda inferior del footer con derechos y autoría -->
+        <p>HiveMenu © 2025 – Creado por estudiantes UPEN</p>
+        <!-- Texto de copyright y crédito -->
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

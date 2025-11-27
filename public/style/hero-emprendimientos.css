@@ -1,0 +1,348 @@
+/* ========================================
+    SECCIÓN DE EMPRENDIMIENTOS
+======================================== */
+
+.emprendimientos {
+    max-width: 1400px; /* ancho máximo de la sección de emprendimientos */
+    margin: 3rem auto; /* margen superior/inferior y centrado horizontal */
+    padding: 2rem; /* espacio interno de la sección */
+}
+
+.section-header {
+    text-align: center; /* centra el contenido del encabezado */
+    margin-bottom: 3rem; /* separación inferior respecto al contenido siguiente */
+}
+
+.section-header h2 {
+    font-size: 2.5rem; /* tamaño de fuente del título principal */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    position: relative; /* permite posicionar el pseudo-elemento decorativo */
+    display: inline-block; /* mantiene el título como bloque en línea */
+}
+
+.section-header h2::after {
+    content: ''; /* crea un pseudo-elemento decorativo debajo del título */
+    position: absolute; /* posiciona el pseudo-elemento respecto al título */
+    bottom: -10px; /* lo coloca debajo del texto */
+    left: 50%; /* lo centra horizontalmente */
+    transform: translateX(-50%); /* ajusta el centrado */
+    width: 80px; /* ancho de la línea decorativa */
+    height: 4px; /* grosor de la línea decorativa */
+    background-color: var(--honey-yellow); /* color amarillo miel de la línea */
+    border-radius: 2px; /* esquinas redondeadas de la línea */
+}
+
+.section-header p {
+    color: #666; /* color gris para el subtítulo */
+    font-size: 1.1rem; /* tamaño de fuente del subtítulo */
+}
+
+/* ========================================
+    BARRA DE BUSQUEDA
+======================================== */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#searchType {
+    padding: 1rem 2.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 25px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    cursor: pointer;
+    min-width: 180px;
+    font-weight: 600;
+    color: var(--bee-black);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%237B904B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+#searchType:hover {
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    transform: translateY(-2px);
+}
+
+#searchType:focus {
+    border-color: var(--warm-gold);
+    box-shadow: 0 0 0 3px rgba(232, 163, 23, 0.15);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    border: 2px solid var(--moss-green);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+    transition: all 0.3s ease;
+    color: var(--bee-black);
+}
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--honey-yellow);
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.2);
+    background: var(--white);
+}
+
+.search-bar > i {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--moss-green);
+    font-size: 1.3rem;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+#searchInput:focus ~ i {
+    color: var(--honey-yellow);
+}
+
+@keyframes searchPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+.search-bar.searching > i {
+    animation: searchPulse 1s infinite;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #searchType {
+        width: 100%;
+    }
+    
+    .search-bar > i {
+        right: 2rem;
+    }
+}
+
+/* ========================================
+    Grid de tarjetas
+======================================== */
+.cards-grid {
+    display: grid; /* usa grid para organizar las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* columnas flexibles mínimo 300px */
+    gap: 2rem; /* separación entre tarjetas */
+}
+
+.card {
+    background-color: var(--white); /* fondo blanco de la tarjeta */
+    border-radius: 20px; /* esquinas redondeadas de la tarjeta */
+    overflow: hidden; /* oculta contenido que se salga del contenedor */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+    transition: all 0.3s ease; /* transición suave en hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* levanta la tarjeta en hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* intensifica la sombra en hover */
+}
+
+.card-image {
+    width: 100%; /* ocupa todo el ancho de la tarjeta */
+    height: 200px; /* altura fija del área de imagen */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo cuando no hay imagen */
+    display: flex; /* usa flex para centrar contenido */
+    align-items: center; /* centra verticalmente */
+    justify-content: center; /* centra horizontalmente */
+    font-size: 4rem; /* tamaño grande para iniciales o ícono */
+    color: var(--white); /* color blanco para iniciales o ícono */
+    position: relative; /* permite posicionar pseudo-elementos */
+    overflow: hidden; /* recorta contenido que se salga del área */
+}
+
+.card-image::after {
+    content: ''; /* pseudo-elemento decorativo superpuesto */
+    position: absolute; /* se coloca sobre el área de imagen */
+    width: 100%; /* ocupa todo el ancho */
+    height: 100%; /* ocupa toda la altura */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white" opacity="0.1"/></svg>'); /* patrón decorativo SVG embebido */
+    opacity: 0.3; /* transparencia del patrón */
+}
+
+.card-content {
+    padding: 1.5rem; /* espacio interno del contenido de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.5rem; /* tamaño de fuente del título */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    font-weight: 600; /* seminegrita para destacar el título */
+}
+
+.card-category {
+    display: inline-block; /* muestra la categoría como bloque en línea */
+    background-color: var(--honey-yellow); /* fondo amarillo miel */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    padding: 0.3rem 1rem; /* espacio interno de la etiqueta */
+    border-radius: 15px; /* esquinas redondeadas tipo píldora */
+    font-size: 0.8rem; /* tamaño compacto de la etiqueta */
+    font-weight: 600; /* seminegrita para resaltar la categoría */
+    margin-bottom: 1rem; /* separación inferior respecto al contenido */
+}
+
+.card-description {
+    color: #666; /* color gris para el texto descriptivo */
+    margin-bottom: 1rem; /* separación inferior bajo la descripción */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+.card-footer {
+    display: flex; /* layout flexible para el pie de la tarjeta */
+    justify-content: space-between; /* separa elementos a extremos */
+    align-items: center; /* centra verticalmente los elementos */
+}
+
+.card-btn {
+    background-color: var(--moss-green); /* fondo verde musgo del botón */
+    color: var(--white); /* texto blanco para contraste */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 20px; /* esquinas redondeadas tipo píldora */
+    text-decoration: none; /* elimina subrayado si es enlace */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.card-btn:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateX(5px); /* desplaza ligeramente el botón a la derecha en hover */
+}
+
+/* ========================================
+    TARJETAS DE EMPRENDIMIENTOS      
+======================================== */
+
+.cards-grid {
+    display: grid; /* usa grid para organizar las tarjetas en filas y columnas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* crea columnas flexibles mínimo de 300px llenando el espacio disponible */
+    gap: 2rem; /* separación entre tarjetas del grid */
+}
+
+.card {
+    background-color: var(--white); /* fondo blanco de la tarjeta para contraste limpio */
+    border-radius: 20px; /* esquinas redondeadas de la tarjeta */
+    overflow: hidden; /* oculta contenido que se salga del contenedor de la tarjeta */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra sutil para dar profundidad */
+    transition: all 0.3s ease; /* transición suave para efectos hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad al pasar por la tarjeta */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* levanta la tarjeta ligeramente en hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* intensifica la sombra al hacer hover */
+}
+
+.card-image {
+    width: 100%; /* el área de imagen ocupa todo el ancho de la tarjeta */
+    height: 200px; /* altura fija del área de imagen */
+    background: linear-gradient(135deg, var(--moss-green), var(--honey-yellow)); /* degradado de fondo cuando no hay imagen */
+    display: flex; /* usa flex para centrar contenido dentro del área de imagen */
+    align-items: center; /* centra verticalmente el contenido del área de imagen */
+    justify-content: center; /* centra horizontalmente el contenido del área de imagen */
+    font-size: 4rem; /* tamaño grande para iniciales o ícono cuando no hay imagen */
+    color: var(--white); /* color blanco del contenido cuando no hay imagen */
+    position: relative; /* habilita posicionamiento relativo para pseudo-elementos */
+    overflow: hidden; /* recorta contenido que se salga del área de imagen */
+    object-fit: cover; /* propiedad innecesaria en div, usada en img, no tiene efecto aquí */
+}
+
+.card-image img {
+    width: 100%; /* la imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* la imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* recorta la imagen manteniendo proporción para cubrir el contenedor */
+}
+
+.card-image::after {
+    content: ''; /* crea un pseudo-elemento decorativo superpuesto */
+    position: absolute; /* posiciona el pseudo-elemento sobre el área de imagen */
+    width: 100%; /* ocupa todo el ancho del área de imagen */
+    height: 100%; /* ocupa toda la altura del área de imagen */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white" opacity="0.1"/></svg>'); /* patrón decorativo con SVG embebido como data URI */
+    opacity: 0.3; /* transparencia del patrón para no distraer demasiado */
+}
+
+.card-content {
+    padding: 1.5rem; /* espacio interno del contenido de la tarjeta */
+}
+
+.card-title {
+    font-size: 1.5rem; /* tamaño de fuente del título de la tarjeta */
+    color: var(--bee-black); /* color oscuro para el título */
+    margin-bottom: 0.5rem; /* separación inferior bajo el título */
+    font-weight: 600; /* seminegrita para dar énfasis al título */
+}
+
+.card-category {
+    display: inline-block; /* muestra la categoría como bloque en línea tipo etiqueta */
+    background-color: var(--honey-yellow); /* fondo amarillo miel de la etiqueta de categoría */
+    color: var(--bee-black); /* texto oscuro para la etiqueta de categoría */
+    padding: 0.3rem 1rem; /* espaciado interno de la etiqueta */
+    border-radius: 15px; /* esquinas redondeadas tipo píldora */
+    font-size: 0.8rem; /* tamaño de fuente compacto para la etiqueta */
+    font-weight: 600; /* seminegrita para destacar la etiqueta */
+    margin-bottom: 1rem; /* separación inferior respecto al resto del contenido */
+}
+
+.card-description {
+    color: #666; /* color gris para el texto descriptivo */
+    margin-bottom: 1rem; /* separación inferior bajo la descripción */
+    line-height: 1.6; /* altura de línea para mejorar legibilidad */
+    display: -webkit-box; /* usa caja flexible de WebKit para el truncado en líneas */
+    -webkit-line-clamp: 2; /* limita la descripción a 2 líneas visibles */
+    -webkit-box-orient: vertical; /* orienta la caja en vertical para el truncado */
+    overflow: hidden; /* oculta el contenido que excede las 2 líneas */
+}
+
+.card-footer {
+    display: flex; /* layout flexible para el pie de la tarjeta */
+    justify-content: space-between; /* separa elementos del pie a extremos */
+    align-items: center; /* alinea verticalmente los elementos del pie */
+}
+
+.card-btn {
+    background-color: var(--moss-green); /* fondo verde musgo del botón de la tarjeta */
+    color: var(--white); /* texto blanco para contraste en el botón */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 20px; /* esquinas redondeadas tipo píldora para el botón */
+    text-decoration: none; /* asegura que no haya subrayado si se usa como enlace */
+    font-weight: 600; /* seminegrita para el texto del botón */
+    transition: all 0.3s ease; /* transición suave en hover */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+    border: none; /* sin borde para un look limpio */
+}
+
+.card-btn:hover {
+    background-color: var(--warm-gold); /* cambia el color de fondo a dorado cálido en hover */
+    transform: translateX(5px); /* desplaza ligeramente a la derecha el botón en hover */
+}

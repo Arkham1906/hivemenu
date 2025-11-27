@@ -1,0 +1,79 @@
+/* ========================================
+    BANNER PRINCIPAL
+======================================== */
+
+.hero {
+    background: linear-gradient(135deg, var(--moss-green) 0%, var(--warm-gold) 100%); /* fondo degradado diagonal con colores principales */
+    color: var(--white); /* texto en color blanco para contraste */
+    padding: 4rem 2rem; /* espacio interno amplio en el banner */
+    text-align: center; /* centra el contenido del banner */
+    position: relative; /* permite posicionar pseudo-elementos dentro del banner */
+    overflow: hidden; /* oculta cualquier contenido que se desborde del contenedor */
+}
+
+.hero::before {
+    content: url(../image/logoblanco.png); /* inserta imagen decorativa como pseudo-elemento */
+    position: absolute; /* posiciona la imagen dentro del banner */
+    font-size: 15rem; /* tamaño grande de la imagen decorativa */
+    opacity: 0.1; /* transparencia para que no distraiga demasiado */
+    right: -5rem; /* coloca la imagen hacia la derecha */
+    top: -3rem; /* coloca la imagen hacia arriba */
+    transform: rotate(-15deg); /* rota la imagen decorativa para dar dinamismo */
+}
+
+.hero-content {
+    max-width: 800px; /* ancho máximo del contenido del banner */
+    margin: 0 auto; /* centra el contenido horizontalmente */
+    position: relative; /* mantiene el contenido por encima del pseudo-elemento */
+    z-index: 1; /* asegura que el contenido esté encima de la imagen decorativa */
+}
+
+.hero h1 {
+    font-size: 3rem; /* tamaño grande para el título principal */
+    margin-bottom: 1rem; /* separación inferior bajo el título */
+    font-weight: 700; /* negrita para destacar el título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* sombra sutil para dar relieve al texto */
+}
+
+.hero p {
+    font-size: 1.3rem; /* tamaño de fuente del subtítulo */
+    margin-bottom: 2rem; /* separación inferior bajo el subtítulo */
+    font-weight: 300; /* peso ligero para contraste con el título */
+}
+
+.hero-buttons {
+    display: flex; /* organiza los botones en fila */
+    gap: 1rem; /* espacio entre botones */
+    justify-content: center; /* centra los botones horizontalmente */
+    flex-wrap: wrap; /* permite que los botones se ajusten en varias líneas si es necesario */
+}
+
+.btn {
+    padding: 1rem 2rem; /* espacio interno de los botones */
+    border-radius: 30px; /* esquinas redondeadas tipo píldora */
+    text-decoration: none; /* elimina subrayado si es enlace */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+    display: inline-block; /* mantiene el botón como bloque en línea */
+}
+
+.btn-primary {
+    background-color: var(--white); /* fondo blanco del botón primario */
+    color: var(--bee-black); /* texto oscuro para contraste */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px); /* levanta ligeramente el botón en hover */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.3); /* sombra blanca suave en hover */
+}
+
+.btn-secondary {
+    background-color: transparent; /* fondo transparente para el botón secundario */
+    color: var(--white); /* texto blanco para contraste */
+    border: 2px solid var(--white); /* borde blanco para delimitar el botón */
+}
+
+.btn-secondary:hover {
+    background-color: var(--white); /* cambia a fondo blanco en hover */
+    color: var(--bee-black); /* cambia el texto a negro para contraste */
+}

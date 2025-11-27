@@ -1,0 +1,144 @@
+/* ========================================
+    IMPORTACIÓN DE FUENTES
+======================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ========================================
+    VARIABLES CSS
+======================================== */
+:root {
+    --moss-green: #7B904B; /* verde musgo usado en fondos y botones */
+    --honey-yellow: #FFC93C; /* amarillo miel para resaltar elementos */
+    --warm-gold: #E8A317; /* dorado cálido para hover y detalles */
+    --bee-black: #1E1E1E; /* negro abeja para textos y fondos */
+    --light-bg: #FAFAFA; /* fondo claro general */
+    --white: #FFFFFF; /* blanco puro para fondos y textos */
+}
+
+/* ========================================
+    ESTILOS GENERALES
+======================================== */
+* {
+    margin: 0; /* elimina márgenes por defecto */
+    padding: 0; /* elimina relleno por defecto */
+    box-sizing: border-box; /* incluye borde y padding en el cálculo del tamaño */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* tipografía principal */
+    background-color: var(--light-bg); /* fondo claro de la página */
+    color: var(--bee-black); /* color de texto principal */
+    line-height: 1.6; /* altura de línea para legibilidad */
+}
+
+/* ========================================
+    HEADER - ENCABEZADO
+======================================== */
+header {
+    background-color: var(--bee-black); /* fondo oscuro del header */
+    padding: 1rem 2rem; /* espacio interno superior/inferior y lateral */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* sombra sutil bajo el header */
+    position: sticky; /* mantiene el header fijo al hacer scroll */
+    top: 0; /* se fija en la parte superior */
+    z-index: 1000; /* asegura que quede por encima del contenido */
+}
+
+.header-container {
+    max-width: 1400px; /* ancho máximo del contenido del header */
+    margin: 0 auto; /* centra el contenido horizontalmente */
+    display: flex; /* usa flexbox para organizar elementos */
+    justify-content: space-between; /* separa elementos a extremos */
+    align-items: center; /* centra verticalmente los elementos */
+}
+
+.logo {
+    display: flex; /* organiza ícono y texto en fila */
+    align-items: center; /* centra verticalmente ícono y texto */
+    gap: 0.5rem; /* espacio entre ícono y texto */
+    color: var(--honey-yellow); /* color amarillo miel para el logo */
+    font-size: 1.8rem; /* tamaño de fuente del logo */
+    font-weight: 700; /* negrita para destacar el logo */
+    text-decoration: none; /* elimina subrayado del enlace */
+}
+
+.imagelg {
+    height: 50px; /* altura fija de la imagen del logo */
+    width: auto; /* ancho automático proporcional */
+    object-fit: contain; /* ajusta la imagen sin recortarla */
+    transition: transform 0.3s ease; /* transición suave para animación */
+}
+
+.logo-box {
+    display: flex; /* organiza imagen y texto en fila */
+    align-items: center; /* centra verticalmente */
+    gap: 0.5rem; /* espacio entre elementos */
+    transition: transform 0.3s ease, filter 0.3s ease; /* animación suave en hover */
+}
+
+.logo-box:hover {
+    transform: translateY(-3px) scale(1.05) rotate(-2deg); /* efecto de movimiento y rotación en hover */
+    filter: drop-shadow(0 0 10px rgba(255, 201, 60, 0.4)); /* sombra amarilla suave */
+}
+
+.logo-box:hover .imagelg {
+    transform: rotate(6deg) scale(1.07); /* rota y escala la imagen en hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* aumenta ligeramente el tamaño del logo en hover */
+}
+
+.logo i {
+    font-size: 2rem; /* tamaño del ícono dentro del logo */
+}
+
+nav ul {
+    display: flex; /* organiza los enlaces en fila */
+    list-style: none; /* elimina viñetas de lista */
+    gap: 2rem; /* espacio entre enlaces */
+    align-items: center; /* centra verticalmente los enlaces */
+}
+
+nav a {
+    color: var(--white); /* color blanco para los enlaces */
+    text-decoration: none; /* elimina subrayado */
+    display: flex; /* organiza ícono y texto en columna */
+    flex-direction: column; /* coloca ícono arriba y texto abajo */
+    align-items: center; /* centra horizontalmente ícono y texto */
+    gap: 0.3rem; /* espacio entre ícono y texto */
+    font-size: 0.9rem; /* tamaño de fuente del texto del enlace */
+    transition: color 0.3s ease; /* transición suave en hover */
+}
+
+nav a:hover {
+    color: var(--honey-yellow); /* cambia a amarillo miel en hover */
+}
+
+nav i {
+    font-size: 1.5rem; /* tamaño de los íconos de navegación */
+}
+
+.btn-create {
+    background-color: var(--honey-yellow); /* fondo amarillo miel del botón */
+    color: var(--bee-black); /* texto oscuro para contraste */
+    padding: 0.7rem 1.5rem; /* espacio interno del botón */
+    border-radius: 25px; /* esquinas redondeadas tipo píldora */
+    font-weight: 600; /* seminegrita para destacar el texto */
+    transition: all 0.3s ease; /* transición suave en hover */
+}
+
+.btn-create:hover {
+    background-color: var(--warm-gold); /* cambia a dorado cálido en hover */
+    transform: translateY(-2px); /* levanta ligeramente el botón en hover */
+    box-shadow: 0 4px 15px rgba(255, 201, 60, 0.4); /* sombra amarilla suave en hover */
+}
+
+/* Menú hamburguesa para móvil */
+.menu-toggle {
+    display: none; /* oculto por defecto en escritorio */
+    background: none; /* sin fondo */
+    border: none; /* sin borde */
+    color: var(--honey-yellow); /* color amarillo miel para el ícono */
+    font-size: 1.8rem; /* tamaño del ícono de menú */
+    cursor: pointer; /* cursor de mano para indicar interactividad */
+}
